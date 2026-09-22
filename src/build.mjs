@@ -2,6 +2,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import crypto from "crypto";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = process.argv[2] || path.join(HERE, "dist");
@@ -70,9 +71,29 @@ function rel(from, to) {
   if (to === "/") return (up === "./" ? "./" : up) + tail;
   return up + to.replace(/^\//, "") + "/" + tail;
 }
+/* Assets are content-addressed. The stylesheet and the script keep their names
+   across builds, which means a browser holding yesterday's copy will happily pair
+   it with today's HTML and render markup the old CSS has no rules for. Putting a
+   hash of the bytes in the filename makes that impossible: changed content is a
+   changed URL, so a stale cache entry is never the one the page asks for. */
+const FAVICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#FFB000"/><path d="M9 8h9.2c3.5 0 5.6 1.8 5.6 4.6 0 1.9-1 3.2-2.6 3.8 2 .5 3.2 2 3.2 4.1 0 3.1-2.3 5.1-6 5.1H9V8Zm4.3 6.6h4c1.3 0 2.1-.7 2.1-1.8s-.8-1.7-2.1-1.7h-4v3.5Zm0 7.2h4.4c1.5 0 2.4-.8 2.4-2s-.9-1.9-2.4-1.9h-4.4v3.9Z" fill="#241E14"/></svg>`;
+
+const ASSET_SRC = {
+  "styles.css": fs.readFileSync(path.join(HERE, "build-assets/styles.css"), "utf8"),
+  "site.js": fs.readFileSync(path.join(HERE, "build-assets/site.js"), "utf8"),
+  "logo-on-light.svg": fs.readFileSync(path.join(HERE, "logo-on-light.svg"), "utf8"),
+  "logo-on-dark.svg": fs.readFileSync(path.join(HERE, "logo-on-dark.svg"), "utf8"),
+  "favicon.svg": FAVICON,
+};
+const ASSET_NAME = {};
+for (const name of Object.keys(ASSET_SRC)) {
+  const hash = crypto.createHash("sha1").update(ASSET_SRC[name]).digest("hex").slice(0, 8);
+  ASSET_NAME[name] = name.replace(/\.([a-z]+)$/, "." + hash + ".$1");
+}
+
 function asset(from, file) {
   const depth = from === "/" ? 0 : from.split("/").filter(Boolean).length;
-  return (depth === 0 ? "./" : "../".repeat(depth)) + "assets/" + file;
+  return (depth === 0 ? "./" : "../".repeat(depth)) + "assets/" + (ASSET_NAME[file] || file);
 }
 
 function rich(s, from) {
@@ -567,13 +588,9 @@ function write(rel_, html) {
 write("index.html", renderHome());
 for (const p of PATHS) write(path.join(p.replace(/^\//, ""), "index.html"), renderPage(PAGES[p]));
 
-/* assets */
-fs.copyFileSync(path.join(HERE, "logo-on-light.svg"), path.join(OUT, "assets/logo-on-light.svg"));
-fs.copyFileSync(path.join(HERE, "logo-on-dark.svg"), path.join(OUT, "assets/logo-on-dark.svg"));
-fs.writeFileSync(path.join(OUT, "assets/styles.css"), fs.readFileSync(path.join(HERE, "build-assets/styles.css"), "utf8"));
-fs.writeFileSync(path.join(OUT, "assets/site.js"), fs.readFileSync(path.join(HERE, "build-assets/site.js"), "utf8"));
-fs.writeFileSync(path.join(OUT, "assets/favicon.svg"),
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#FFB000"/><path d="M9 8h9.2c3.5 0 5.6 1.8 5.6 4.6 0 1.9-1 3.2-2.6 3.8 2 .5 3.2 2 3.2 4.1 0 3.1-2.3 5.1-6 5.1H9V8Zm4.3 6.6h4c1.3 0 2.1-.7 2.1-1.8s-.8-1.7-2.1-1.7h-4v3.5Zm0 7.2h4.4c1.5 0 2.4-.8 2.4-2s-.9-1.9-2.4-1.9h-4.4v3.9Z" fill="#241E14"/></svg>`);
+/* assets, under the hashed names the pages just referenced */
+for (const name of Object.keys(ASSET_SRC))
+  fs.writeFileSync(path.join(OUT, "assets/" + ASSET_NAME[name]), ASSET_SRC[name], "utf8");
 
 /* sitemap + robots */
 const urls = ["/"].concat(PATHS);
@@ -584,8 +601,8 @@ fs.writeFileSync(path.join(OUT, "sitemap.xml"),
 fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
 
 /* generated files that are not pages, tracked so a later build can clean them up */
-const EXTRA = ["assets/logo-on-light.svg", "assets/logo-on-dark.svg", "assets/styles.css",
-  "assets/site.js", "assets/favicon.svg", "sitemap.xml", "robots.txt", "serve.cmd", "README.md"];
+const EXTRA = Object.keys(ASSET_SRC).map(n => "assets/" + ASSET_NAME[n])
+  .concat(["sitemap.xml", "robots.txt", "serve.cmd", "README.md"]);
 
 /* a local server, for anyone who wants the real directory URLs while reviewing */
 fs.writeFileSync(path.join(OUT, "serve.cmd"),

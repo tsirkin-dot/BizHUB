@@ -33,11 +33,14 @@ const TYPES = {
 };
 const COMPRESSIBLE = /^(text\/|application\/(json|xml)|image\/svg)/;
 
-/* HTML is revalidated on every request so a deploy is visible at once; the
-   assets keep their filenames across builds, so they get a short TTL rather
-   than an immutable one that would strand a reader on an old stylesheet. */
-function cacheFor(type) {
-  return type.startsWith("text/html") ? "no-cache" : "public, max-age=3600";
+/* Everything the build hashes lives under /assets/, so those URLs are immutable
+   by construction and can be cached hard. Everything else — the pages, the
+   sitemap, robots — is revalidated on every request, so a deploy is visible at
+   once rather than after a TTL nobody remembers setting. */
+function cacheFor(pathname) {
+  return /^\/assets\/[^/]+\.[0-9a-f]{8}\./.test(pathname)
+    ? "public, max-age=31536000, immutable"
+    : "no-cache";
 }
 
 function resolve(urlPath) {
@@ -114,13 +117,13 @@ const server = http.createServer((req, res) => {
   const etag = '"' + crypto.createHash("sha1").update(body).digest("base64").slice(0, 22) + '"';
 
   if (req.headers["if-none-match"] === etag) {
-    res.writeHead(304, { ETag: etag, "Cache-Control": cacheFor(type) });
+    res.writeHead(304, { ETag: etag, "Cache-Control": cacheFor(pathname) });
     return res.end();
   }
 
   send(req, res, 200, body, type, {
     ETag: etag,
-    "Cache-Control": cacheFor(type),
+    "Cache-Control": cacheFor(pathname),
     "X-Content-Type-Options": "nosniff",
   });
 });
