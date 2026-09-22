@@ -24,6 +24,50 @@
     try { localStorage.setItem(TKEY, next); } catch (e) {}
   });
 
+  /* ---------------- design skin ----------------
+     The full skin lives in a <template>, so it costs the document nothing until
+     it is asked for: cloned in on first use, and the product stylesheet is
+     enabled at the same moment so it can never reach the basis design. */
+  var SKEY = "bd-skin";
+  var skinHost = null;
+  function skinCss() { return document.getElementById("fullskin-css"); }
+  function applySkin(v) {
+    var tpl = document.getElementById("fullskin");
+    if (v === "full" && tpl && !skinHost) {
+      skinHost = document.createElement("div");
+      skinHost.id = "bzskin";
+      skinHost.appendChild(tpl.content.cloneNode(true));
+      document.body.appendChild(skinHost);
+    }
+    var css = skinCss();
+    if (css) css.disabled = v !== "full";
+    if (v === "full") document.documentElement.setAttribute("data-skin", "full");
+    else document.documentElement.removeAttribute("data-skin");
+    var btns = document.querySelectorAll("[data-skin]");
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].tagName !== "BUTTON") continue;
+      btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-skin") === v ? "true" : "false");
+    }
+  }
+  function setSkin(v) {
+    applySkin(v);
+    try { localStorage.setItem(SKEY, v); } catch (e) {}
+    if (v === "full") window.scrollTo(0, 0);
+  }
+  var savedSkin = "basis";
+  try { if (localStorage.getItem(SKEY) === "full") savedSkin = "full"; } catch (e) {}
+  if (document.getElementById("fullskin")) applySkin(savedSkin);
+  document.addEventListener("click", function (e) {
+    var el = e.target;
+    while (el && el !== document.body) {
+      if (el.tagName === "BUTTON" && el.getAttribute("data-skin")) {
+        setSkin(el.getAttribute("data-skin"));
+        return;
+      }
+      el = el.parentNode;
+    }
+  });
+
   /* ---------------- hero call to action ---------------- */
   var CKEY = "bd-cta";
   function applyCta(v) {

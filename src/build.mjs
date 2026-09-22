@@ -81,6 +81,7 @@ const FAVICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><re
 const ASSET_SRC = {
   "styles.css": fs.readFileSync(path.join(HERE, "build-assets/styles.css"), "utf8"),
   "site.js": fs.readFileSync(path.join(HERE, "build-assets/site.js"), "utf8"),
+  "full.css": fs.readFileSync(path.join(HERE, "build-assets/full.css"), "utf8"),
   "logo-on-light.svg": fs.readFileSync(path.join(HERE, "logo-on-light.svg"), "utf8"),
   "logo-on-dark.svg": fs.readFileSync(path.join(HERE, "logo-on-dark.svg"), "utf8"),
   "favicon.svg": FAVICON,
@@ -185,6 +186,7 @@ function shell({ cur, title, desc, head, body }) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="${asset(cur, "styles.css")}">
+<link rel="stylesheet" href="${asset(cur, "full.css")}" id="fullskin-css" disabled>
 ${head}
 </head>
 <body>
@@ -201,6 +203,10 @@ ${head}
       <button class="ghost" id="build" aria-pressed="false" title="Show how each block on the page was assembled"><span class="dot"></span>How it was built</button>
       <button class="ghost" id="theme" aria-label="Switch colour theme" title="Switch colour theme">Theme</button>
 ${PAGES[cur] && PAGES[cur].cta ? `
+      <div class="seg" id="skinseg" role="group" aria-label="Design">
+        <button type="button" data-skin="basis" aria-pressed="true">Basis</button>
+        <button type="button" data-skin="full" aria-pressed="false">Full</button>
+      </div>
       <div class="seg" id="ctaseg" role="group" aria-label="Call to action style">
         <button type="button" data-cta="pitch" aria-pressed="true">Pitch</button>
         <button type="button" data-cta="chat" aria-pressed="false">Chat</button>
@@ -229,6 +235,128 @@ ${PAGES[cur] && PAGES[cur].cta ? `
 </body>
 </html>
 `;
+}
+
+/* ---------- the full skin ----------
+   A second markup tree for the same page, written against the product's own
+   block library (bz-*) instead of this cluster's documentation layout. It ships
+   inside a <template>, which the parser keeps out of the document: the page is
+   still one copy of its own text for anything that reads or indexes it, and the
+   script clones the tree in only when somebody asks for the design.
+   The instrumentation — pins, page tree, retrieval panel — stays with the basis
+   skin, because it describes how the page was built rather than what it says. */
+function bzBlock(x, from) {
+  if (typeof x === "string") return `<p class="bzp">${rich(x, from)}</p>`;
+  if (x.a) return `<p class="bzp bzp--lead">${rich(x.a, from)}</p>`;
+  if (x.p) return `<p class="bzp">${rich(x.p, from)}</p>`;
+  if (x.h3) return `<h3 class="bzh3">${rich(x.h3, from)}</h3>`;
+  if (x.ul) return `<ul class="bzul">${x.ul.map(i => `<li>${rich(i, from)}</li>`).join("")}</ul>`;
+  if (x.ol) return `<ol class="bzul">${x.ol.map(i => `<li>${rich(i, from)}</li>`).join("")}</ol>`;
+  if (x.note) {
+    const n = x.note;
+    return `<div class="bznote bznote--${n.k || "info"}"><b>${esc(n.t)}</b>` +
+      (n.d ? `<p>${rich(n.d, from)}</p>` : "") +
+      (n.ul ? `<ul class="bzul">${n.ul.map(i => `<li>${rich(i, from)}</li>`).join("")}</ul>` : "") + `</div>`;
+  }
+  if (x.cards) return `<div class="bz-features-type-1__grid">` + x.cards.map(c =>
+    `<div class="bz-features-type-1__card"><h3 class="bz-features-type-1__card-heading">${rich(c.h, from)}</h3>` +
+    `<p class="bz-features-type-1__card-text">${rich(c.p, from)}</p></div>`).join("") + `</div>`;
+  if (x.steps) return `<div class="bz-features-type-2__grid">` + x.steps.map((s, i) =>
+    `<div class="bz-features-type-2__step"><div class="bz-features-type-2__step-num">${i + 1}</div>` +
+    `<h3 class="bz-features-type-2__step-heading">${rich(s.b, from)}</h3>` +
+    `<p class="bz-features-type-2__step-text">${rich(s.s, from)}</p></div>`).join("") + `</div>`;
+  if (x.table) {
+    const t = x.table;
+    return `<div class="bz-comparison-type-1__wrap"><table class="bz-comparison-type-1__table"><thead><tr>` +
+      t.c.map(c => `<th class="bz-comparison-type-1__th">${esc(c)}</th>`).join("") + `</tr></thead><tbody>` +
+      t.r.map(row => `<tr>` + row.map((c, i) =>
+        `<td class="bz-comparison-type-1__td${i === 0 ? " bz-comparison-type-1__td--label" : ""}">${rich(c, from)}</td>`).join("") +
+        `</tr>`).join("") + `</tbody></table></div>`;
+  }
+  return "";
+}
+const bzBlocks = (arr, from) => (arr || []).map(x => bzBlock(x, from)).join("");
+
+function bzCards(d, from) {
+  return `<div class="bz-features-type-3__grid">` + d.items.map(i =>
+    `<div class="bz-features-type-3__card"><div class="bz-features-type-3__card-body">` +
+    `<h3 class="bz-features-type-3__card-heading">${rich(i.h, from)}</h3>` +
+    `<p class="bz-features-type-3__card-text">${rich(i.p, from)}</p></div></div>`).join("") + `</div>`;
+}
+
+function renderFull(p) {
+  const from = p.path;
+  const home = rel(from, "/");
+  const nav = NAV.map(n => `<a class="bz-navbar-type-1__link" href="${rel(from, n.p)}">${esc(n.l)}</a>`).join("");
+
+  const secs = (p.secs || []).map((s, i) =>
+    `<section class="bz-features-type-1${i % 2 ? " bzalt" : ""}"><div class="bz-features-type-1__inner">` +
+    `<p class="bz-section-label">${esc(KIND_LABEL[p.kind] || p.kind)} · ${esc(roleOf(s))}</p>` +
+    `<h2 class="bz-section-heading">${rich(s.h, from)}</h2>` +
+    bzBlocks(s.b, from) + `</div></section>`).join("");
+
+  const pit = (d, defH, label) => d && (d.items || []).length
+    ? `<section class="bz-features-type-3"><div class="bz-features-type-3__inner">` +
+      `<p class="bz-section-label">${label}</p><h2 class="bz-section-heading">${esc(d.h || defH)}</h2>` +
+      `<p class="bz-section-description">${rich(d.d, from)}</p>` + bzCards(d, from) + `</div></section>`
+    : "";
+
+  const faq = (p.faq || []).length
+    ? `<section class="bz-faq-type-1"><div class="bz-faq-type-1__inner">` +
+      `<h2 class="bz-section-heading">${esc(p.faqH || "Frequently asked questions")}</h2>` +
+      `<div class="bz-faq-type-1__block">` + p.faq.map(f =>
+        `<details class="bz-faq-type-1__item"><summary>${rich(f.q, from)}<span class="bz-faq-type-1__chevron"></span></summary>` +
+        `<div class="bz-faq-type-1__answer">` +
+        (Array.isArray(f.a) ? bzBlocks(f.a, from) : `<p class="bzp">${rich(f.a, from)}</p>`) +
+        `</div></details>`).join("") + `</div></div></section>`
+    : "";
+
+  const related = (p.rel || []).length
+    ? `<section class="bz-products-type-1"><div class="bz-products-type-1__inner">` +
+      `<h2 class="bz-products-type-1__heading">${esc(p.relH || "Where to go next")}</h2>` +
+      `<div class="bz-products-type-1__grid">` + p.rel.map(r =>
+        `<div class="bz-products-type-1__card"><h3 class="bzh3">${esc(PAGES[r.p].title)}</h3>` +
+        `<p class="bzp">${rich(r.w, from)}</p><a href="${rel(from, r.p)}">Read it \u2192</a></div>`).join("") +
+      `</div></div></section>`
+    : "";
+
+  const voice = (p.voice || []).length
+    ? `<section class="bz-products-type-1 bzalt"><div class="bz-products-type-1__inner">` +
+      `<h2 class="bz-products-type-1__heading">Spoken questions this page answers</h2>` +
+      `<div class="bz-products-type-1__grid">` +
+      p.voice.map(v => `<div class="bz-products-type-1__card"><p class="bzp">${esc(v)}</p></div>`).join("") +
+      `</div></div></section>`
+    : "";
+
+  return `<nav class="bz-navbar-type-1"><div class="bz-navbar-type-1__container">
+  <a class="bz-navbar-type-1__logo" href="${home}"><img class="bz-navbar-type-1__logo-img" src="${asset(from, "logo-on-light.svg")}" alt="BizDraft" width="92" height="21"></a>
+  <div class="bz-navbar-type-1__links">${nav}</div>
+  <div class="seg bzseg" role="group" aria-label="Design">
+    <button type="button" data-skin="basis" aria-pressed="false">Basis</button>
+    <button type="button" data-skin="full" aria-pressed="true">Full</button>
+  </div>
+  <a class="bz-navbar-type-1__cta" href="${home}">${esc(p.cta ? p.cta.b1 : "Start a draft")}</a>
+</div></nav>
+<section class="bz-hero-header-type-1"><div class="bz-hero-header-type-1__inner"><div class="bz-hero-header-type-1__content">
+  <p class="bz-hero-header-type-1__eyebrow">${esc(KIND_LABEL[p.kind] || p.kind)}</p>
+  <h1 class="bz-hero-header-type-1__heading">${rich(p.h1 || p.title, from)}</h1>
+  <p class="bz-hero-header-type-1__subtitle">${rich(p.lede, from)}</p>
+  ${p.cta ? `<a class="bz-hero-header-type-1__cta" href="${home}">${esc(p.cta.b1)}</a>` : ""}
+  ${p.ask ? `<form class="bzask" action="${home}" method="get"><textarea name="q" rows="2" placeholder="${attr(p.ask)}" aria-label="Describe the document you need"></textarea><button type="submit" aria-label="Start the draft">\u2192</button></form>` : ""}
+  <p class="bz-hero-header-type-1__trust">Free · No sign-up · Word or PDF · All 50 states</p>
+</div></div></section>
+${p.job ? `<section class="bz-banner-type-3"><p class="bz-banner-type-3__text"><strong>The one job this page owns.</strong> ${rich(p.job, from)}</p></section>` : ""}
+${voice}${secs}${pit(p.mistakes, "Common mistakes", "What you do")}${pit(p.flags, "Red flags", "What you are shown")}${faq}${related}
+${p.cta ? `<section class="bz-call-to-action-type-1"><div class="bz-call-to-action-type-1__inner">
+  <h2 class="bz-call-to-action-type-1__heading">${rich(p.cta.h, from)}</h2>
+  <p class="bz-call-to-action-type-1__description">${rich(p.cta.p, from)}</p>
+  <a class="bz-call-to-action-type-1__cta" href="${home}">${esc(p.cta.b1)}</a>
+</div></section>` : ""}
+<footer class="bz-footer-type-1"><div class="bz-footer-type-1__inner">
+  <a class="bz-footer-type-1__logo" href="${home}"><img class="bz-footer-type-1__logo-img" src="${asset(from, "logo-on-light.svg")}" alt="BizDraft" width="92" height="21"></a>
+  <div class="bz-footer-type-1__links">${NAV.map(n => `<a class="bz-footer-type-1__link" href="${rel(from, n.p)}">${esc(n.l)}</a>`).join("")}</div>
+  <p class="bz-footer-type-1__copyright">Demonstration cluster. Not legal advice.</p>
+</div></footer>`;
 }
 
 /* ---------- a content page ---------- */
@@ -340,6 +468,7 @@ function renderPage(p) {
   <div class="scope-body" id="scope-body" data-ledger="${attr(JSON.stringify(ledger))}"></div>
   <div class="scope-foot"><a class="tryout" href="https://www.getlooploop.com/vectorscope" target="_blank" rel="noopener">Try Vectorscope online ↗</a></div></section>`;
 
+  const fullSkin = `<template id="fullskin">${renderFull(p)}</template>`;
   const article = `<div class="wrap"><article id="article">
 <div class="crumb" aria-label="Breadcrumb">${crumbs.join("")}</div>
 <div class="kind" data-ann="kind">${esc(KIND_LABEL[p.kind] || p.kind)}</div>
@@ -351,7 +480,7 @@ ${voice}${body}${mistakesSec}${flagsSec}${faq}${relSec}${cta}
 <div class="disc" data-ann="disc"><strong>Not legal advice.</strong> ${rich(p.disc ||
     "This page describes how residential rental documents usually work in the United States. Residential tenancy is governed by state and often city law, and a rule that is usual is not universal. Check your own state and city before you sign, and speak to a landlord–tenant attorney for anything contested.", from)}</div>
 ${scope}
-</article>${aside}</div>`;
+</article>${aside}</div>${fullSkin}`;
 
   const ld = [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbLd },

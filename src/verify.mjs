@@ -19,12 +19,18 @@ function walk(dir, acc = []) {
 }
 
 const files = walk(ROOT).filter(f => f.endsWith(".html"));
+
+/* A <template> is parsed into a fragment, not into the document: nothing in it
+   renders, is indexed, or counts towards a page's headings. The full-skin markup
+   lives in one, so every check below reads the page without it. */
+const read = f => fs.readFileSync(f, "utf8").replace(/<template[\s\S]*?<\/template>/g, "");
+
 if (!files.length) fail.push("no HTML files found in " + path.resolve(ROOT));
 
 /* ---- 1. every local link and asset resolves ---- */
 let refs = 0;
 for (const f of files) {
-  const html = fs.readFileSync(f, "utf8"), dir = path.dirname(f);
+  const html = read(f), dir = path.dirname(f);
   const ids = new Set([...html.matchAll(/id="([^"]+)"/g)].map(m => m[1]));
   for (const m of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const u = m[1];
@@ -42,7 +48,7 @@ for (const f of files) {
 
 /* ---- 2. head requirements ---- */
 for (const f of files) {
-  const html = fs.readFileSync(f, "utf8");
+  const html = read(f);
   if (!/<title>[^<]{10,}<\/title>/.test(html)) fail.push(`${f}: missing or thin <title>`);
   if (!/<meta name="description" content="[^"]{60,}"/.test(html)) fail.push(`${f}: missing or thin meta description`);
   if (!/<link rel="canonical" href="https?:\/\//.test(html)) fail.push(`${f}: missing canonical`);
@@ -59,7 +65,7 @@ for (const f of files) {
 /* ---- 3. retrieval budgets, measured from the source text of each H2 section ---- */
 const stripTags = s => s.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/g, " ").replace(/\s+/g, " ").trim();
 for (const f of files) {
-  const html = fs.readFileSync(f, "utf8");
+  const html = read(f);
   const article = (html.match(/<article[^>]*>([\s\S]*?)<\/article>/) || [, ""])[1];
   if (!article) continue;
   const secs = [...article.matchAll(/<section class="sec"[^>]*>([\s\S]*?)<\/section>/g)].map(m => m[1]);
@@ -79,7 +85,7 @@ for (const f of files) {
 const pageOf = f => "/" + path.relative(ROOT, f).replace(/\\/g, "/").replace(/index\.html$/, "").replace(/\/$/, "");
 const inbound = new Map(files.map(f => [pageOf(f), 0]));
 for (const f of files) {
-  const html = fs.readFileSync(f, "utf8"), dir = path.dirname(f), self = pageOf(f), seen = new Set();
+  const html = read(f), dir = path.dirname(f), self = pageOf(f), seen = new Set();
   for (const m of html.matchAll(/<a [^>]*href="([^"#]+)"/g)) {
     const u = m[1];
     if (/^(https?:|mailto:)/.test(u)) continue;
