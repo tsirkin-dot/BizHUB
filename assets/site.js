@@ -18,7 +18,7 @@
   var themeBtn = document.getElementById("theme");
   if (themeBtn) themeBtn.addEventListener("click", function () {
     var cur = document.documentElement.getAttribute("data-theme");
-    var dark = cur ? cur === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var dark = cur === "dark";
     var next = dark ? "light" : "dark";
     applyTheme(next);
     try { localStorage.setItem(TKEY, next); } catch (e) {}
