@@ -1,0 +1,14 @@
+{
+  "name": "bizhub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "US residential rental cluster - generated static pages",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node src/build.mjs . pretty",
+    "verify": "node src/verify.mjs ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
