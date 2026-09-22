@@ -24,6 +24,7 @@
     try { localStorage.setItem(TKEY, next); } catch (e) {}
   });
 
+  var CKEY = "bd-cta";
   /* ---------------- design skin ----------------
      The full skin lives in a <template>, so it costs the document nothing until
      it is asked for: cloned in on first use, and the product stylesheet is
@@ -38,6 +39,7 @@
       skinHost.id = "bzskin";
       skinHost.appendChild(tpl.content.cloneNode(true));
       document.body.appendChild(skinHost);
+      applyCta(readCta());
     }
     var css = skinCss();
     if (css) css.disabled = v !== "full";
@@ -69,10 +71,9 @@
   });
 
   /* ---------------- hero call to action ---------------- */
-  var CKEY = "bd-cta";
   function applyCta(v) {
     document.documentElement.setAttribute("data-cta", v);
-    var btns = document.querySelectorAll("#ctaseg button");
+    var btns = document.querySelectorAll("button[data-cta]");
     for (var i = 0; i < btns.length; i++) {
       btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-cta") === v ? "true" : "false");
     }
@@ -81,9 +82,10 @@
     applyCta(v);
     try { localStorage.setItem(CKEY, v); } catch (e) {}
   }
-  var savedCta = "pitch";
-  try { if (localStorage.getItem(CKEY) === "chat") savedCta = "chat"; } catch (e) {}
-  applyCta(savedCta);
+  function readCta() {
+    try { return localStorage.getItem(CKEY) === "chat" ? "chat" : "pitch"; } catch (e) { return "pitch"; }
+  }
+  applyCta(readCta());
   document.addEventListener("click", function (e) {
     var el = e.target;
     while (el && el !== document.body) {

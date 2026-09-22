@@ -331,7 +331,11 @@ function renderFull(p) {
   return `<nav class="bz-navbar-type-1"><div class="bz-navbar-type-1__container">
   <a class="bz-navbar-type-1__logo" href="${home}"><img class="bz-navbar-type-1__logo-img" src="${asset(from, "logo-on-light.svg")}" alt="BizDraft" width="92" height="21"></a>
   <div class="bz-navbar-type-1__links">${nav}</div>
-  <div class="seg bzseg" role="group" aria-label="Design">
+  <div class="seg bzseg" role="group" aria-label="Call to action style">
+    <button type="button" data-cta="pitch" aria-pressed="true">Pitch</button>
+    <button type="button" data-cta="chat" aria-pressed="false">Chat</button>
+  </div>
+  <div class="seg" role="group" aria-label="Design">
     <button type="button" data-skin="basis" aria-pressed="false">Basis</button>
     <button type="button" data-skin="full" aria-pressed="true">Full</button>
   </div>
@@ -341,8 +345,8 @@ function renderFull(p) {
   <p class="bz-hero-header-type-1__eyebrow">${esc(KIND_LABEL[p.kind] || p.kind)}</p>
   <h1 class="bz-hero-header-type-1__heading">${rich(p.h1 || p.title, from)}</h1>
   <p class="bz-hero-header-type-1__subtitle">${rich(p.lede, from)}</p>
-  ${p.cta ? `<a class="bz-hero-header-type-1__cta" href="${home}">${esc(p.cta.b1)}</a>` : ""}
-  ${p.ask ? `<form class="bzask" action="${home}" method="get"><textarea name="q" rows="2" placeholder="${attr(p.ask)}" aria-label="Describe the document you need"></textarea><button type="submit" aria-label="Start the draft">\u2192</button></form>` : ""}
+  ${p.cta ? `<a class="bz-hero-header-type-1__cta bzhc bzhc--pitch" href="${home}">${esc(p.cta.b1)}</a>` : ""}
+  ${p.ask ? `<form class="bzask bzhc bzhc--chat" action="${home}" method="get"><textarea name="q" rows="2" placeholder="${attr(p.ask)}" aria-label="Describe the document you need"></textarea><button type="submit" aria-label="Start the draft">\u2192</button></form>` : ""}
   <p class="bz-hero-header-type-1__trust">Free · No sign-up · Word or PDF · All 50 states</p>
 </div></div></section>
 ${p.job ? `<section class="bz-banner-type-3"><p class="bz-banner-type-3__text"><strong>The one job this page owns.</strong> ${rich(p.job, from)}</p></section>` : ""}

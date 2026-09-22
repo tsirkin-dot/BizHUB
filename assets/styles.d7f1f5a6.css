@@ -337,6 +337,11 @@ td strong{color:var(--tx)}
   border:0; background:var(--color-brand-primary,#ffb000); color:var(--color-brand-primary-darkest,#241e14);
   font-size:15px; cursor:pointer}
 #bzskin .bzseg{margin-left:auto}
+#bzskin .seg{flex:none}
+/* the hero shows one route at a time, on the same switch as the basis skin */
+#bzskin .bzhc--chat{display:none}
+:root[data-cta="chat"] #bzskin .bzhc--pitch{display:none}
+:root[data-cta="chat"] #bzskin .bzhc--chat{display:block}
 @media (max-width:880px){ #bzskin .bz-navbar-type-1__links{display:none} }
 
 /* ===================== hero call to action ===================== */
