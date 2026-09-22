@@ -107,7 +107,10 @@ if (!fs.existsSync(smPath)) {
 } else {
   const sm = fs.readFileSync(smPath, "utf8");
   const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].length;
-  if (locs !== files.length) fail.push(`sitemap lists ${locs} URLs but there are ${files.length} pages`);
+  const indexable = files.filter(f => !/<meta name="robots" content="noindex/.test(read(f)));
+  if (locs !== indexable.length) {
+    fail.push(`sitemap lists ${locs} URLs but there are ${indexable.length} indexable pages`);
+  }
 }
 
 /* ---- report ---- */

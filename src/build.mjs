@@ -16,7 +16,7 @@ const LINK_STYLE = (process.argv[3] || "file").toLowerCase();
 /* ---------- load the page data ---------- */
 const window = {};
 globalThis.window = window;
-for (const f of ["docs-a", "docs-b", "situations", "audience", "glossary"]) {
+for (const f of ["docs-a", "docs-b", "situations", "audience", "glossary", "sectors"]) {
   new Function("window", fs.readFileSync(path.join(HERE, "data", f + ".js"), "utf8"))(window);
 }
 const PAGES = {};
@@ -26,7 +26,7 @@ const PATHS = Object.keys(PAGES);
 const CHUNK_CAP = 26, CHUNK_CHARS = 2000, MIN_CHUNK = 40;
 const KIND_LABEL = {
   category: "Category hub", template: "Document", usecase: "Situation",
-  glossary: "Glossary term", role: "Audience hub", industry: "Industry"
+  glossary: "Glossary term", role: "Audience hub", industry: "Industry", sector: "Sector"
 };
 
 const GROUPS = [
@@ -44,6 +44,9 @@ const GROUPS = [
   { ct: "Audience", h: "Roles & industries",
     p: "Who the reader is, and the whole stack of documents that role keeps — the entry point for somebody who does not yet know which document they need.",
     paths: ["/for-business/landlords", "/industries/property-management"] },
+  { ct: "Sectors", h: "Sectors",
+    p: "The same ground read from the sector's side rather than the document's. These pages open in the product design and are kept out of the index, so they sit beside the pages above without competing with them for the same answer.",
+    paths: ["/sectors/landlords", "/sectors/managed-portfolios"] },
   { ct: "Definitions", h: "Glossary",
     p: "One term, one page, one definition. These own the “what does X mean” queries so no document page has to compete for them.",
     paths: ["/glossary/security-deposit", "/glossary/normal-wear-and-tear",
@@ -54,7 +57,8 @@ const NAV = [
   { l: "Industries", p: "/industries/property-management" },
   { l: "Use cases", p: "/use-cases/renting-out-your-first-property" },
   { l: "Glossary", p: "/glossary/security-deposit" },
-  { l: "For business", p: "/for-business/landlords" }
+  { l: "For business", p: "/for-business/landlords" },
+  { l: "Sectors", p: "/sectors/landlords" }
 ];
 
 /* ---------- helpers ---------- */
@@ -181,7 +185,7 @@ function shell({ cur, title, desc, head, body }) {
 <meta property="og:description" content="${attr(desc)}">
 <meta property="og:url" content="${ORIGIN}${cur === "/" ? "/" : cur + "/"}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="${asset(cur, "favicon.svg")}" type="image/svg+xml">
+${PAGES[cur] && PAGES[cur].skin ? '<meta name="robots" content="noindex,follow">\n' : ""}<link rel="icon" href="${asset(cur, "favicon.svg")}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -189,7 +193,7 @@ function shell({ cur, title, desc, head, body }) {
 <link rel="stylesheet" href="${asset(cur, "full.css")}" id="fullskin-css" disabled>
 ${head}
 </head>
-<body>
+<body${PAGES[cur] && PAGES[cur].skin ? ` data-skin-default="${attr(PAGES[cur].skin)}"` : ""}>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="top-in">
@@ -826,7 +830,7 @@ for (const name of Object.keys(ASSET_SRC))
   fs.writeFileSync(path.join(OUT, "assets/" + ASSET_NAME[name]), ASSET_SRC[name], "utf8");
 
 /* sitemap + robots */
-const urls = ["/"].concat(PATHS);
+const urls = ["/"].concat(PATHS.filter(p => !PAGES[p].skin));
 fs.writeFileSync(path.join(OUT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => `  <url><loc>${ORIGIN}${u === "/" ? "/" : u + "/"}</loc><changefreq>monthly</changefreq><priority>${u === "/" ? "1.0" : (u.split("/").length <= 3 ? "0.8" : "0.6")}</priority></url>`).join("\n") +

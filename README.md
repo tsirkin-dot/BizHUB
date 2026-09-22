@@ -1,6 +1,6 @@
 # BizDraft — US residential rental cluster
 
-A complete static site. 20 content pages plus the cluster map, one directory per URL,
+A complete static site. 22 content pages plus the cluster map, one directory per URL,
 no build step and no dependencies. Open `index.html` and click through.
 
 ## Structure
@@ -63,7 +63,7 @@ internal link rather than emitting one.
 
 ## The rules this cluster is built to
 
-- One page, one job. The register on the cluster map lists all 20 jobs; two that
+- One page, one job. The register on the cluster map lists all 22 jobs; two that
   could share an answer would be one page.
 - The chunker splits on `h1` and `h2` only, so every H2 section is written to stand alone:
   heading, direct answer, evidence, next action.

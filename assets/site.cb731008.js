@@ -56,8 +56,11 @@
     try { localStorage.setItem(SKEY, v); } catch (e) {}
     if (v === "full") window.scrollTo(0, 0);
   }
-  var savedSkin = "basis";
-  try { if (localStorage.getItem(SKEY) === "full") savedSkin = "full"; } catch (e) {}
+  var savedSkin = document.body.getAttribute("data-skin-default") === "full" ? "full" : "basis";
+  try {
+    var storedSkin = localStorage.getItem(SKEY);
+    if (storedSkin === "full" || storedSkin === "basis") savedSkin = storedSkin;
+  } catch (e) {}
   if (document.getElementById("fullskin")) applySkin(savedSkin);
   document.addEventListener("click", function (e) {
     var el = e.target;
