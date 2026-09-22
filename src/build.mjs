@@ -394,6 +394,78 @@ function renderHome() {
 <div class="map-grid">${cols}</div>
 <h2>How a page here is assembled</h2>
 <p class="sub">Two instruments decide what goes on a page and how it is shaped. One works before the writing, on what somebody would actually say out loud. The other works after it, on what a retrieval system is able to lift back out. Neither produces prose — they produce constraints, and the constraints are visible on every page in this cluster.</p>
+<article class="mcard wide">
+  <div class="mh"><span class="mk">Intent ownership</span><span class="mkind">before either tool runs</span></div>
+  <p class="mlede">Neither instrument below decides what the pages are. That happens first, and it is a single operation: take the demand somebody actually has, and split it by the <em>shape</em> of the question rather than by subject. “Rental agreement” is not one intent, it is four, and they want four different answers. Give each shape its own page and no two pages compete; give one page two shapes and it answers neither well while quietly cannibalising the page that should have owned the other.</p>
+  <div class="mtwo">
+    <div>
+      <svg class="mfig" viewBox="0 0 340 168" role="img" aria-label="Diagram: one demand is split by the shape of the question into four lanes — what is this, this happened to me, who am I, what does this mean — each owned by a different page type">
+  <rect class="fb key" x="60" y="6" width="220" height="26" rx="6"/>
+  <text class="ft" x="170" y="23">one demand: “rental agreement”</text>
+  <g class="fl">
+    <path d="M170 32 V44 H39 V56"/><path d="M170 32 V44 H126 V56"/>
+    <path d="M170 32 V44 H213 V56"/><path d="M170 32 V44 H300 V56"/>
+  </g>
+  <rect class="fb" x="1" y="56" width="77" height="40" rx="5"/>
+  <text class="ft sm" x="39" y="72">what is this</text><text class="ft sm" x="39" y="84">what goes in it</text>
+  <rect class="fb" x="88" y="56" width="77" height="40" rx="5"/>
+  <text class="ft sm" x="126" y="72">this just</text><text class="ft sm" x="126" y="84">happened to me</text>
+  <rect class="fb" x="175" y="56" width="77" height="40" rx="5"/>
+  <text class="ft sm" x="213" y="72">who am I</text><text class="ft sm" x="213" y="84">what do I need</text>
+  <rect class="fb" x="262" y="56" width="77" height="40" rx="5"/>
+  <text class="ft sm" x="300" y="72">what does</text><text class="ft sm" x="300" y="84">this word mean</text>
+  <g class="fl"><path d="M39 96 V114"/><path d="M126 96 V114"/><path d="M213 96 V114"/><path d="M300 96 V114"/></g>
+  <rect class="fb out" x="1" y="114" width="77" height="24" rx="5"/><text class="ft sm" x="39" y="130">document</text>
+  <rect class="fb out" x="88" y="114" width="77" height="24" rx="5"/><text class="ft sm" x="126" y="130">situation</text>
+  <rect class="fb out" x="175" y="114" width="77" height="24" rx="5"/><text class="ft sm" x="213" y="130">audience</text>
+  <rect class="fb out" x="262" y="114" width="77" height="24" rx="5"/><text class="ft sm" x="300" y="130">glossary</text>
+  <text class="ft sm mute" x="170" y="158">exactly one lane per query — an overlap means one page too many</text>
+</svg>
+      <p class="mcap">One demand, four question shapes, four owners. The register on this page is the audit: if two rows could be satisfied by the same answer, they are one page and one of them should not exist.</p>
+    </div>
+    <div>
+      <svg class="mfig" viewBox="0 0 340 168" role="img" aria-label="Diagram: the job from the register, the owned queries from Voicescope and the size limits from Vectorscope feed a page brief, which produces a page whose every H2 section is one retrieval chunk">
+  <rect class="fb" x="2" y="14" width="98" height="32" rx="5"/>
+  <text class="ft sm" x="51" y="29">the one job</text><text class="ft sm mute" x="51" y="40">from the register</text>
+  <rect class="fb" x="2" y="68" width="98" height="32" rx="5"/>
+  <text class="ft sm" x="51" y="83">owned queries</text><text class="ft sm mute" x="51" y="94">from Voicescope</text>
+  <rect class="fb" x="2" y="122" width="98" height="32" rx="5"/>
+  <text class="ft sm" x="51" y="137">size limits</text><text class="ft sm mute" x="51" y="148">from Vectorscope</text>
+  <g class="fl"><path d="M100 30 L136 76"/><path d="M100 84 H136"/><path d="M100 138 L136 92"/></g>
+  <rect class="fb key" x="136" y="62" width="66" height="44" rx="6"/>
+  <text class="ft" x="169" y="88">page brief</text>
+  <g class="fl"><path d="M202 84 H236"/></g>
+  <rect class="fb out" x="236" y="18" width="102" height="132" rx="6"/>
+  <text class="ft sm mute" x="287" y="34">one page</text>
+  <rect class="fbar h2" x="246" y="42" width="82" height="14" rx="3"/>
+  <rect class="fbar h2" x="246" y="64" width="82" height="14" rx="3"/>
+  <rect class="fbar h2" x="246" y="86" width="82" height="14" rx="3"/>
+  <rect class="fbar h2" x="246" y="108" width="82" height="14" rx="3"/>
+  <rect class="fbar h2" x="246" y="130" width="82" height="14" rx="3"/>
+</svg>
+      <p class="mcap">What each page is written from. The job comes from the register, the queries from Voicescope, the limits from Vectorscope — and the page that comes out is a stack of sections, each one a whole retrieval chunk.</p>
+    </div>
+  </div>
+  <h4>The four question shapes</h4>
+  <ul class="maxes">
+    <li><b>What is this, and what goes in it</b><span>A document exists and the reader wants it explained. Owned by the nine document pages.</span></li>
+    <li><b>This just happened to me</b><span>A circumstance, described in full sentences, usually without naming any document. Owned by the four situation pages.</span></li>
+    <li><b>Who am I, and what do I need</b><span>The reader knows their role and not their paperwork. Owned by the two audience pages.</span></li>
+    <li><b>What does this word mean</b><span>One term, one answer, no action attached. Owned by the five glossary pages.</span></li>
+  </ul>
+  <h4>The brief a page is written from</h4>
+  <p>Put those inputs together and the instruction for a single page is short, because almost all of it is constraint rather than subject. This is the skeleton behind every page in this cluster, and it is the shape worth reaching for on any page meant to be retrieved rather than merely published — the subject line is the only one that changes between them.</p>
+  <div class="pskel">
+    <div><b>ROLE</b><span>One page, one job, one question shape. Anything outside it is a link, not a section.</span></div>
+    <div><b>JOB</b><span>The single sentence from the register. Every section is tested against it and dropped if it serves a different one.</span></div>
+    <div><b>OWNS</b><span>The queries this page answers outright, including the spoken phrasings that never mention the head term.</span></div>
+    <div><b>HANDS OFF</b><span>The adjacent jobs, each named with the page that owns it, so the temptation to answer them here is already spent.</span></div>
+    <div><b>SHAPE</b><span>H2 is the cut line. Answer in the first sentences, evidence after, no pronoun pointing up the page, ${CHUNK_CHARS.toLocaleString("en-US")} characters a section.</span></div>
+    <div><b>CLOSE</b><span>What the reader does wrong, then what the reader is shown, then where they go next.</span></div>
+    <div><b>NEVER</b><span>A number presented as national when it is state law, and any claim the product cannot stand behind.</span></div>
+  </div>
+</article>
+
 <div class="method">
 
   <article class="mcard">
