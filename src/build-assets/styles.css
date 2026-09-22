@@ -301,6 +301,42 @@ td strong{color:var(--tx)}
 .scope-foot{padding:13px 18px; border-top:1px solid var(--bd-2); background:var(--bg-2)}
 .scope-note code{font-family:var(--mono); font-size:11.5px; background:var(--bg-3); padding:1px 5px; border-radius:4px; color:var(--tx-2)}
 
+/* ===================== method cards (cluster map) ===================== */
+.method{display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:18px; margin:18px 0 30px}
+.mcard{border:1px solid var(--bd); border-radius:12px; background:var(--bg); padding:20px 20px 22px}
+.mh{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:11px}
+.mk{font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:-.02em}
+.mkind{font-family:var(--mono); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--tx-3)}
+.mh .tryout{margin-left:auto}
+.mlede{margin:0 0 14px; font-size:14.5px; color:var(--tx-2); line-height:1.55}
+.mcard h4{font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--tx-3); font-weight:500; margin:18px 0 8px}
+.mcard p{font-size:14.5px; color:var(--tx-2); line-height:1.55}
+.mcard h4 + p{margin-top:0}
+.maxes{list-style:none; margin:0; padding:0}
+.maxes li{padding:8px 0; border-bottom:1px solid var(--bd-2); font-size:14px}
+.maxes li:last-child{border-bottom:0}
+.maxes b{display:block; color:var(--tx); font-weight:600; margin-bottom:1px}
+.maxes span{color:var(--tx-3)}
+.mq{margin:16px 0 0; padding:11px 15px; border-left:3px solid var(--brand); background:var(--bg-2);
+  border-radius:0 var(--r) var(--r) 0; font-size:14px; color:var(--tx-2); line-height:1.55}
+.mcap{margin:7px 0 0; font-size:12.5px; color:var(--tx-3); line-height:1.5}
+
+.mfig{display:block; width:100%; height:auto; margin:14px 0 0; background:var(--bg-2);
+  border:1px solid var(--bd-2); border-radius:var(--r); padding:8px}
+.mfig .fb{fill:var(--bg); stroke:var(--bd); stroke-width:1}
+.mfig .fb.key{fill:var(--brand); stroke:var(--brand)}
+.mfig .fb.out{fill:var(--bg-3); stroke:var(--bd-2)}
+.mfig .ft{font-family:var(--mono); font-size:9px; fill:var(--tx-2); text-anchor:middle}
+.mfig .fb.key + .ft{fill:var(--brand-darkest)}
+.mfig .ft.cap{text-anchor:end; fill:var(--tx-3)}
+.mfig .fl path{stroke:var(--bd-3); stroke-width:1; fill:none}
+.mfig .fr{stroke:var(--tx-3); stroke-width:2; opacity:.35; fill:none; stroke-linecap:round}
+.mfig .fd{fill:var(--brand)}
+.mfig .fcap{stroke:var(--amber); stroke-width:1; stroke-dasharray:4 3; fill:none}
+.mfig .fbase{stroke:var(--bd-3); stroke-width:1; fill:none}
+.mfig .fbar{fill:var(--bd-2)}
+.mfig .fbar.over{fill:var(--amber)}
+
 /* ===================== build-mode annotations ===================== */
 body.build [data-ann]{outline:1.5px dashed var(--amber); outline-offset:5px; border-radius:3px}
 .pin{

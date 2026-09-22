@@ -371,6 +371,92 @@ function renderHome() {
 <h2>The four layers</h2>
 <p class="sub">A document page answers “what is this and what goes in it”. A situation page answers “this just happened to me”. An audience page answers “who am I and what do I need”. A glossary page answers “what does this word mean”. Four different questions, so four different pages — never one page trying to hold all four.</p>
 <div class="map-grid">${cols}</div>
+<h2>How a page here is assembled</h2>
+<p class="sub">Two instruments decide what goes on a page and how it is shaped. One works before the writing, on what somebody would actually say out loud. The other works after it, on what a retrieval system is able to lift back out. Neither produces prose — they produce constraints, and the constraints are visible on every page in this cluster.</p>
+<div class="method">
+
+  <article class="mcard">
+    <div class="mh"><span class="mk">Voicescope</span><span class="mkind">before the writing</span>
+      <a class="tryout" href="https://www.getlooploop.com/voicescope" target="_blank" rel="noopener">Try it online ↗</a></div>
+    <p class="mlede">Reconstructs how a keyword turns into a full sentence when it is spoken to an assistant rather than typed into a search box. It takes one head term and crosses it with four axes of circumstance — never all four at once — then groups the results by the job somebody is doing rather than by how similar the wording is.</p>
+    <svg class="mfig" viewBox="0 0 340 196" role="img" aria-label="Diagram: one head term is crossed with four axes of circumstance, producing spoken questions, most of which no longer contain the term itself">
+  <rect class="fb key" x="6" y="80" width="70" height="34" rx="6"/>
+  <text class="ft" x="41" y="101">head term</text>
+  <g class="fl">
+    <path d="M76 97 L110 24"/><path d="M76 97 L110 64"/><path d="M76 97 L110 104"/><path d="M76 97 L110 144"/>
+  </g>
+  <rect class="fb" x="110" y="10" width="104" height="28" rx="5"/>
+  <text class="ft" x="162" y="28">urgency</text>
+  <rect class="fb" x="110" y="50" width="104" height="28" rx="5"/>
+  <text class="ft" x="162" y="68">device &amp; setup</text>
+  <rect class="fb" x="110" y="90" width="104" height="28" rx="5"/>
+  <text class="ft" x="162" y="108">the document</text>
+  <rect class="fb" x="110" y="130" width="104" height="28" rx="5"/>
+  <text class="ft" x="162" y="148">what is going wrong</text>
+  <g class="fl">
+    <path d="M214 24 L246 47"/><path d="M214 64 L246 47"/><path d="M214 104 L246 99"/><path d="M214 144 L246 151"/>
+  </g>
+  <rect class="fb out" x="246" y="30" width="88" height="34" rx="6"/>
+  <path class="fr" d="M256 44 H316 M256 52 H300"/>
+  <rect class="fb out" x="246" y="82" width="88" height="34" rx="6"/>
+  <path class="fr" d="M256 96 H320 M256 104 H292"/>
+  <rect class="fb out has" x="246" y="134" width="88" height="34" rx="6"/>
+  <path class="fr" d="M256 148 H310 M256 156 H304"/>
+  <circle class="fd" cx="330" cy="140" r="3.5"/>
+</svg>
+    <p class="mcap">One term, four axes, questions grouped by job. The marked output still contains the head term; the others describe the problem instead.</p>
+    <h4>The four axes</h4>
+    <ul class="maxes">
+      <li><b>Urgency</b><span>How much time there is — right now, on the move, against a deadline.</span></li>
+      <li><b>Device and setup</b><span>A phone with nothing installed asks a different question from a desk.</span></li>
+      <li><b>The specific document</b><span>Not “a document” but the lease the agent is waiting for this afternoon.</span></li>
+      <li><b>What is going wrong</b><span>The actual fear: fix one word, hide a number, did it really delete.</span></li>
+    </ul>
+    <blockquote class="mq">“A question still containing the head term is one your existing page probably answers. A question that describes the problem instead is the one your competitor has not written yet.”</blockquote>
+    <h4>What it changed on these pages</h4>
+    <p>Every page carries a block of these hypotheses, ${voices} across the cluster, and they are labelled as hypotheses because nothing here claims anybody has measured them. More consequentially, the questions that drop the head term are the reason the four situation pages exist at all: “my tenant is two months behind” is not a phrasing of “notice to vacate”, so it gets its own page rather than a section on the document page. The FAQ on each page is phrased the same way — as somebody would ask it out loud, not as a heading would be written.</p>
+  </article>
+
+  <article class="mcard">
+    <div class="mh"><span class="mk">Vectorscope</span><span class="mkind">after the writing</span>
+      <a class="tryout" href="https://www.getlooploop.com/vectorscope" target="_blank" rel="noopener">Try it online ↗</a></div>
+    <p class="mlede">Reads a URL the way a retrieval system does: fetch, extract, chunk, embed, group. It chunks on headings first, using the H2 and H3 structure as the cut lines, then compares neighbouring blocks and cuts again where the meaning shifts. What comes back is the set of passages your page actually becomes once it is indexed — which is rarely the set of sections you thought you wrote.</p>
+    <svg class="mfig" viewBox="0 0 340 196" role="img" aria-label="Diagram: a five-stage pipeline of fetch, extract, chunk, embed and group, above a row of passage bars measured against the per-chunk character cap, one of which exceeds it">
+  <rect class="fb" x="4" y="8" width="56" height="26" rx="5"/><text class="ft" x="32" y="25">fetch</text>
+  <rect class="fb" x="72" y="8" width="56" height="26" rx="5"/><text class="ft" x="100" y="25">extract</text>
+  <rect class="fb key" x="140" y="8" width="56" height="26" rx="5"/><text class="ft" x="168" y="25">chunk</text>
+  <rect class="fb" x="208" y="8" width="56" height="26" rx="5"/><text class="ft" x="236" y="25">embed</text>
+  <rect class="fb" x="276" y="8" width="56" height="26" rx="5"/><text class="ft" x="304" y="25">group</text>
+  <g class="fl">
+    <path d="M60 21 H72"/><path d="M128 21 H140"/><path d="M196 21 H208"/><path d="M264 21 H276"/>
+  </g>
+  <path class="fcap" d="M4 74 H336"/>
+  <text class="ft cap" x="336" y="68">per-chunk cap</text>
+  <rect class="fbar" x="12" y="96" width="26" height="84" rx="3"/>
+  <rect class="fbar" x="52" y="112" width="26" height="68" rx="3"/>
+  <rect class="fbar" x="92" y="88" width="26" height="92" rx="3"/>
+  <rect class="fbar over" x="132" y="60" width="26" height="120" rx="3"/>
+  <rect class="fbar" x="172" y="104" width="26" height="76" rx="3"/>
+  <rect class="fbar" x="212" y="92" width="26" height="88" rx="3"/>
+  <rect class="fbar" x="252" y="120" width="26" height="60" rx="3"/>
+  <rect class="fbar" x="292" y="100" width="26" height="80" rx="3"/>
+  <path class="fbase" d="M4 180 H336"/>
+</svg>
+    <p class="mcap">The pipeline, and the passages it produces measured against the per-chunk ceiling. A passage over the line is split mid-answer, so half an answer is what gets retrieved.</p>
+    <h4>What it measures</h4>
+    <ul class="maxes">
+      <li><b>Chunks beyond cap</b><span>Passages over the retrieval limit, invisible to indexing however good they are.</span></li>
+      <li><b>Extraction ratio</b><span>How much fetched HTML survives as readable text rather than navigation and boilerplate.</span></li>
+      <li><b>Group coherence</b><span>One large cluster means repetition; many single-passage groups mean the subject keeps changing.</span></li>
+      <li><b>Question retrieval</b><span>Which passage a real query actually returns, rather than which one you hoped it would.</span></li>
+      <li><b>Noindex detection</b><span>Whether the page asks to be left out of the index in the first place.</span></li>
+    </ul>
+    <blockquote class="mq">Answers have to sit “under a heading that names the question, high enough on the page to survive the retrieval cap”.</blockquote>
+    <h4>What it changed on these pages</h4>
+    <p>The H2 is the cut line, so every H2 section here is written to stand alone: its own heading, its own answer, its own context, its own next action. The direct answer sits in the first sentence or two under the heading, before the evidence rather than after it, with no pronouns pointing back up the page. Sections are sized against a ${CHUNK_CHARS.toLocaleString("en-US")}-character ceiling per chunk and ${CHUNK_CAP} chunks per page, and the build refuses to emit a page that breaks either. The panel at the foot of every page re-measures all of it from the rendered DOM when you load it, so the numbers are the page you are looking at rather than something stored at build time.</p>
+  </article>
+
+</div>
 <h2>Intent ownership</h2>
 <p class="sub">The anti-cannibalisation register. If two rows below could be satisfied by the same answer, they are the same page and one of them should not exist.</p>
 ${block({ table: { c: ["The job somebody is doing", "Page that owns it", "Layer"], r: rows } }, from)}
@@ -445,6 +531,7 @@ reviewing.
 The pages are generated from five data files in the source project
 (\`data/docs-a.js\`, \`docs-b.js\`, \`situations.js\`, \`audience.js\`, \`glossary.js\`).
 Each page is one object: \`path\`, \`kind\`, \`title\`, \`lede\`, \`job\`, \`voice[]\`, \`secs[]\`,
+\`mistakes\`, \`flags\`,
 \`faq[]\`, \`rel[]\`, \`cta\`. Editing those and re-running the build regenerates everything,
 including the sitemap, the breadcrumbs and the structured data. The build throws on a broken
 internal link rather than emitting one.

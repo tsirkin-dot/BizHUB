@@ -56,6 +56,7 @@ reviewing.
 The pages are generated from five data files in the source project
 (`data/docs-a.js`, `docs-b.js`, `situations.js`, `audience.js`, `glossary.js`).
 Each page is one object: `path`, `kind`, `title`, `lede`, `job`, `voice[]`, `secs[]`,
+`mistakes`, `flags`,
 `faq[]`, `rel[]`, `cta`. Editing those and re-running the build regenerates everything,
 including the sitemap, the breadcrumbs and the structured data. The build throws on a broken
 internal link rather than emitting one.
