@@ -67,18 +67,6 @@ window.P_SITUATIONS = [
       ]
     },
     {
-      h: "The five mistakes first-time landlords actually make",
-      b: [
-        { note: { k: "warn", t: "Red flags", ul: [
-          "**No move-in condition report.** Without it you cannot prove what the property looked like, and a deposit deduction you cannot prove is one you have to return.",
-          "**Cash rent with no receipts.** It is the hardest dispute to resolve and it always resolves against the party with no records.",
-          "**Letting an unnamed adult move in.** Somebody who is not on the lease owes you no rent, and in several states is still difficult to remove.",
-          "**Describing the ideal tenant in the advert.** Familial status and religion are the two that catch people who had no discriminatory intent whatsoever.",
-          "**Entering the property without notice.** Most states require advance written notice except in an emergency. It is also the fastest way to destroy a working relationship with a good tenant. See [quiet enjoyment](/glossary/quiet-enjoyment)."
-        ] } }
-      ]
-    },
-    {
       h: "What this page cannot tell you",
       b: [
         "It cannot tell you whether your city requires a rental licence, what your state caps the deposit at, or how much notice you must give before entering. Those are the three numbers that vary most across the United States, and they are the three you need before you sign anything.",
@@ -88,6 +76,53 @@ window.P_SITUATIONS = [
   ],
   faq2At: 3,
   faq2H: "Managing it, and changing your mind",
+  mistakes: {
+    h: "The five mistakes first-time landlords actually make",
+    d: "These five account for most of what goes wrong in a first tenancy, and every one of them is a decision the landlord makes rather than something that happens to them.",
+    items: [
+      {
+        h: "No move-in condition report",
+        p: "Without it you cannot prove what the property looked like, and a deposit deduction you cannot prove is one you have to return. See [a new tenant moving in](/use-cases/new-tenant-moving-in)."
+      },
+      {
+        h: "Cash rent with no receipts",
+        p: "It is the hardest dispute to resolve and it always resolves against the party with no records."
+      },
+      {
+        h: "Letting an unnamed adult move in",
+        p: "Somebody who is not on the lease owes you no rent, and in several states is still difficult to remove."
+      },
+      {
+        h: "Describing the ideal tenant in the advert",
+        p: "Familial status and religion are the two that catch people who had no discriminatory intent whatsoever. See [the rental application](/agreements/real-estate/rental-application)."
+      },
+      {
+        h: "Entering the property without notice",
+        p: "Most states require advance written notice except in an emergency. It is also the fastest way to destroy a working relationship with a good tenant. See [quiet enjoyment](/glossary/quiet-enjoyment)."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals from an applicant or an incoming tenant worth slowing down for. Each one is about conduct or paperwork, never about who somebody is.",
+    items: [
+      {
+        h: "Pressure to skip the written agreement",
+        p: "A tenancy agreed on a handshake is one you have to prove the terms of later, from memory, against somebody with a different memory."
+      },
+      {
+        h: "Cash up front in exchange for no screening",
+        p: "Six months offered on the condition that you do not check anything is a payment for the absence of a record."
+      },
+      {
+        h: "The number of occupants keeps changing",
+        p: "Ask once and write the answer down. A figure that moves between viewing and signing tends to keep moving after move-in."
+      },
+      {
+        h: "Reluctance to let you document the condition",
+        p: "The condition report protects both sides. Resistance to it is specifically resistance to having a baseline."
+      }
+    ]
+  },
   faq: [
     { q: "Do I need a lawyer to rent out my house?", a: "For a straightforward residential let in a state you can research, generally no — the documents are standard and the obligations are published. Get advice when something is unusual: a property with an unpermitted unit, a tenancy in a rent-stabilised city, a co-owner who disagrees, or any dispute that has already started. The cost of an hour of advice is small against a single failed eviction." },
     { q: "Can I rent to a friend without a written agreement?", a: "You can, and it is the most common way a friendship and a property both get damaged. A written lease protects the friendship precisely because it takes the awkward conversations — late rent, leaving early, the state of the kitchen — and settles them in advance, in writing, when nobody is angry." },
@@ -170,6 +205,52 @@ window.P_SITUATIONS = [
       ]
     }
   ],
+  mistakes: {
+    d: "Handover errors are evidence errors. What is not recorded on the day cannot be proved on the day it matters, which is the day the tenancy ends.",
+    items: [
+      {
+        h: "Photographs with no date and no context",
+        p: "A close-up of a mark proves the mark. It does not prove which room, which property or which day. Photograph the room, then the detail."
+      },
+      {
+        h: "A condition report only one party signs",
+        p: "An unsigned report is one side's opinion written down. Signed by both, it is the baseline every later deduction is measured against."
+      },
+      {
+        h: "Handing over keys before funds have cleared",
+        p: "Once possession has passed, a failed payment is an arrears problem rather than a decision you can still make."
+      },
+      {
+        h: "No record of how many keys were issued",
+        p: "Key and fob counts are among the few deductions that are simple to prove, and only if the number was written down at the start."
+      },
+      {
+        h: "Skipping meter readings and utility transfers",
+        p: "Readings taken on the day settle who owes which part of the first bill, and they take a minute to record."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals on handover day that are worth pausing over rather than pushing through.",
+    items: [
+      {
+        h: "Willing to take the keys, unwilling to sign the report",
+        p: "The report protects both sides. Reluctance to sign it is specifically reluctance about the baseline."
+      },
+      {
+        h: "An extra adult arrives to move in",
+        p: "Somebody not on the lease occupying from day one is the hardest version of that problem to unwind. See [the lease](/agreements/real-estate/residential-lease-agreement)."
+      },
+      {
+        h: "Damage described as pre-existing that is not in the report",
+        p: "Raised on the day it is a correction to the record. Raised at move-out it is a dispute. See [normal wear and tear](/glossary/normal-wear-and-tear)."
+      },
+      {
+        h: "An immediate request to change the locks",
+        p: "Often reasonable, occasionally not. Either way it should be agreed in writing, with a key provided where the lease requires one."
+      }
+    ]
+  },
   faq: [
     { q: "Can I give the keys before the deposit clears?", a: "You can, and you are then an unsecured creditor of somebody who is already living in your property. If the payment fails, your options are to pursue them for it or to begin ending a tenancy that has just started. Wait for cleared funds, or take payment by a method that clears instantly." },
     { q: "What if the tenant refuses to sign the condition report?", a: "Complete it anyway, note on it that the tenant declined to sign and the date, photograph everything, and send them a copy by a method that records delivery, inviting corrections within a stated period. An unsigned report that was demonstrably sent is far stronger than no report — but a tenant refusing to sign is itself worth a conversation about why." },
@@ -263,6 +344,52 @@ window.P_SITUATIONS = [
   ],
   faq2At: 3,
   faq2H: "After they leave: credit, judgments and recovery",
+  mistakes: {
+    d: "Every item here is a shortcut, and each one converts a rent problem, which the law is largely willing to help you with, into a liability problem, which it is not.",
+    items: [
+      {
+        h: "Changing the locks",
+        p: "Self-help eviction is unlawful in every state. Statutory damages for a lockout routinely exceed the arrears that prompted it."
+      },
+      {
+        h: "Shutting off utilities",
+        p: "Treated as constructive eviction almost everywhere, and in several states it carries penalties of its own. See [quiet enjoyment](/glossary/quiet-enjoyment)."
+      },
+      {
+        h: "Removing belongings",
+        p: "Most states set a specific procedure for abandoned property, with storage and notice obligations. Disposal outside it creates a claim against you."
+      },
+      {
+        h: "Taking a partial payment without recording what it is for",
+        p: "Money accepted with no allocation can waive a notice already served, or be argued to have done. Write down which month it pays."
+      },
+      {
+        h: "Filing before the notice period has run",
+        p: "The case is dismissed, the clock restarts, and the arrears grow by the length of the whole period. See [notice to vacate](/agreements/real-estate/notice-to-vacate)."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals that the arrears are not a temporary cash-flow problem and the file needs to be built properly.",
+    items: [
+      {
+        h: "Contact stops altogether",
+        p: "Silence after a run of communication is usually the point at which informal recovery has ended."
+      },
+      {
+        h: "Promises that never arrive in writing",
+        p: "A payment plan agreed on the phone and never confirmed by email is a plan neither side can enforce."
+      },
+      {
+        h: "A payment offered on condition the notice is dropped",
+        p: "Accepting on those terms can waive the notice. Decide that deliberately if you decide it at all."
+      },
+      {
+        h: "A request to take the arrears out of the deposit",
+        p: "Several states restrict this while the tenancy is running, and doing it leaves nothing for damage at the end. See [security deposit](/glossary/security-deposit)."
+      }
+    ]
+  },
   faq: [
     { q: "Can I evict a tenant without going to court?", a: "No. Every American state requires a court process to remove a tenant who does not leave voluntarily, and every state prohibits self-help — locks, utilities, belongings. A landlord who takes possession without a court order is usually liable for statutory damages that exceed the rent they were owed." },
     { q: "The tenant offered part of what they owe. Should I take it?", a: "Take it, but protect your position first. In some states accepting rent after serving a notice waives the notice and you have to start again. Write, before or when you accept it, that the payment is accepted as partial payment towards the stated arrears, is not accepted in satisfaction, and does not waive the notice or reinstate the tenancy. If your state is strict on this point, get advice before accepting anything." },
@@ -358,6 +485,56 @@ window.P_SITUATIONS = [
       ]
     }
   ],
+  mistakes: {
+    d: "Deposits are usually lost on the way out rather than at the end. By the time the statement arrives, most of what would have answered it no longer exists.",
+    items: [
+      {
+        h: "Leaving no forwarding address in writing",
+        p: "In many states the return clock runs from the address you supplied. No address can mean no deadline, and no deadline to enforce."
+      },
+      {
+        h: "No move-out photographs",
+        p: "The move-in record shows how it started. Without a matching set from the last day, any deduction is argued from one side's evidence only."
+      },
+      {
+        h: "Handing back the keys before the final inspection",
+        p: "Where the state gives you the right to attend, attending is what turns a disputed charge into a corrected one."
+      },
+      {
+        h: "Treating the deposit as the last month's rent",
+        p: "Withholding rent against the deposit usually breaches the lease, and can forfeit protections that would otherwise have applied to the deposit itself."
+      },
+      {
+        h: "Missing the deadline to dispute",
+        p: "The statutory windows are short, and they run whether or not you were expecting the statement."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals in what the landlord sends back that the deductions are not going to be straightforward.",
+    items: [
+      {
+        h: "An itemised statement that is not itemised",
+        p: "“Cleaning and repairs — $900” is a total, not an itemisation, and most states require the latter."
+      },
+      {
+        h: "Charges for ordinary ageing",
+        p: "Faded paint, worn carpet in a walkway and small fixing holes are generally not chargeable. See [normal wear and tear](/glossary/normal-wear-and-tear)."
+      },
+      {
+        h: "Full replacement cost for a part-worn item",
+        p: "A carpet with two years left in it is not a new carpet. Depreciation is usually the difference between a fair deduction and an unfair one."
+      },
+      {
+        h: "Silence past the statutory deadline",
+        p: "In several states missing the deadline forfeits the right to deduct at all, and sometimes carries a penalty on top."
+      },
+      {
+        h: "A cleaning fee appearing for the first time at the end",
+        p: "A charge with no basis in the lease and no mention at move-in is one worth asking for the source of."
+      }
+    ]
+  },
   faq: [
     { q: "How long does a landlord have to return a security deposit?", a: "It is set by state law and runs from about fourteen to sixty days from the end of the tenancy, with thirty days being the most common figure. Almost every state requires an itemised written statement of any deductions within the same period. Check your own state's number — it is the single most useful fact in any deposit dispute." },
     { q: "Can my landlord charge me for cleaning?", a: "It depends on the state, the lease and the condition. Several states prohibit charging for ordinary cleaning between tenancies; others permit it where the lease provides for it and the property was left below the standard it was received in. A blanket cleaning fee applied regardless of condition is the version most likely to be struck out." },

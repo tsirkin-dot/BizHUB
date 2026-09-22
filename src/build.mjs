@@ -231,6 +231,20 @@ function renderPage(p) {
       `<div class="vlist">${p.voice.map(v => `<p>${esc(v)}</p>`).join("")}</div></div>`
     : "";
 
+  /* Two halves of the same lesson, kept apart on purpose: a mistake is something the
+     reader does, a red flag is something the reader is shown. Both are H2 sections so
+     each one is a retrieval chunk in its own right rather than an aside nobody lifts. */
+  const pitfall = (d, cls, ann, defH, id) => d && (d.items || []).length
+    ? `<section class="sec" id="${id}"><h2 data-ann="h2">${esc(d.h || defH)}</h2>` +
+      `<div class="pitfalls ${cls}" data-ann="${ann}"><p class="pf-d">${rich(d.d, from)}</p>` +
+      `<ul class="pf-list">${d.items.map(i =>
+        `<li><b>${rich(i.h, from)}</b><span>${rich(i.p, from)}</span></li>`).join("")}</ul></div></section>`
+    : "";
+  const mistakesSec = pitfall(p.mistakes, "mistakes", "mistakes", "Common mistakes", "mistakes");
+  const flagsSec = pitfall(p.flags, "flags", "flags", "Red flags", "red-flags");
+  const mistakesH = p.mistakes && (p.mistakes.h || "Common mistakes");
+  const flagsH = p.flags && (p.flags.h || "Red flags");
+
   const faqGroups = [];
   if ((p.faq || []).length) {
     const at = p.faq2At && p.faq2At < p.faq.length ? p.faq2At : p.faq.length;
@@ -259,6 +273,8 @@ function renderPage(p) {
     : "";
 
   const headings = (p.secs || []).map((s, i) => ({ h: s.h, id: ids[i] }));
+  if (mistakesSec) headings.push({ h: mistakesH, id: "mistakes" });
+  if (flagsSec) headings.push({ h: flagsH, id: "red-flags" });
   faqGroups.forEach(g => headings.push({ h: g.h, id: g.id }));
   const aside = `<div class="aside"><h6>On this page</h6><nav class="toc" id="toc" aria-label="On this page">` +
     headings.map(h => `<a href="#${h.id}" data-id="${h.id}">${esc(h.h)}</a>`).join("") + `</nav></div>`;
@@ -266,6 +282,8 @@ function renderPage(p) {
   /* the chunk ledger is emitted at build time from the source, then re-measured in the browser */
   const ledger = [];
   (p.secs || []).forEach((s, i) => ledger.push({ i, h: s.h, role: roleOf(s) }));
+  if (mistakesSec) ledger.push({ i: ledger.length, h: mistakesH, role: "checklist" });
+  if (flagsSec) ledger.push({ i: ledger.length, h: flagsH, role: "risk" });
   faqGroups.forEach(g => ledger.push({ i: ledger.length, h: g.h, role: "answer" }));
   if ((p.rel || []).length) ledger.push({ i: ledger.length, h: p.relH || "Where to go next", role: "action" });
 
@@ -280,7 +298,7 @@ function renderPage(p) {
 <h1>${rich(p.h1 || p.title, from)}</h1>
 <p class="lede">${rich(p.lede, from)}</p>
 ${p.job ? `<div class="job" data-ann="job"><span class="k">The one job this page owns</span><span class="v">${rich(p.job, from)}</span></div>` : ""}
-${voice}${body}${faq}${relSec}${cta}
+${voice}${body}${mistakesSec}${flagsSec}${faq}${relSec}${cta}
 <div class="disc" data-ann="disc"><strong>Not legal advice.</strong> ${rich(p.disc ||
     "This page describes how residential rental documents usually work in the United States. Residential tenancy is governed by state and often city law, and a rule that is usual is not universal. Check your own state and city before you sign, and speak to a landlord–tenant attorney for anything contested.", from)}</div>
 ${scope}

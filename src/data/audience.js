@@ -76,6 +76,52 @@ window.P_AUDIENCE = [
       ]
     }
   ],
+  mistakes: {
+    d: "At portfolio level errors stop being one-off and start being systemic: the same defect repeated across every tenancy you hold.",
+    items: [
+      {
+        h: "One defective clause in the standard lease",
+        p: "A clause that is void in one tenancy is void in all of them. This is the single largest difference between one let and twenty."
+      },
+      {
+        h: "No one place where the documents live",
+        p: "Leases in email, disclosures in a drawer and notices in a phone is a stack you cannot produce on request, and producing it on request is the point."
+      },
+      {
+        h: "Deposits mixed into operating cash",
+        p: "Several states require separate holding. Even where they do not, a deposit you have spent is one you have to find at short notice. See [security deposit](/glossary/security-deposit)."
+      },
+      {
+        h: "Renewal dates tracked in somebody's head",
+        p: "Every missed renewal converts a fixed term into a periodic tenancy on the law's terms rather than yours. See [holdover tenant](/glossary/holdover-tenant)."
+      },
+      {
+        h: "Changing the template without versioning it",
+        p: "If you cannot tell which tenancy was signed on which version, you cannot fix a defect across the portfolio without reading every file."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals that the document stack has drifted out of date, usually noticed first at renewal or at sale.",
+    items: [
+      {
+        h: "Two current tenancies on different standard leases",
+        p: "Drift of this kind means a fix applied once has not been applied everywhere."
+      },
+      {
+        h: "A disclosure you cannot produce on request",
+        p: "The obligation is generally to have given it and to be able to show it. The second half is the one that fails."
+      },
+      {
+        h: "Deposit totals that do not reconcile",
+        p: "A gap between what the ledger says is held and what the account holds is the version of this problem that becomes serious fastest."
+      },
+      {
+        h: "Notices sent from a personal account with no record",
+        p: "Service has to be provable. A sent folder that has been cleared is not proof."
+      }
+    ]
+  },
   faq: [
     { q: "Do I need different leases for different states?", a: "The body of the lease travels; the disclosures, deposit rules, notice periods and fee caps do not. Keep one structure and swap the state-specific parts, and treat a lease that has been used unchanged in a second state as a lease that has not been checked for that state." },
     { q: "Should I hold the deposit in a separate account?", a: "In several states you must, and some also require it to bear interest and require you to tell the tenant in writing where it is held. Even where nothing requires it, a separate account is worth keeping: it makes the deposit provably intact, and it prevents it being spent by accident, which is the origin of a surprising number of deposit disputes." },
@@ -160,6 +206,52 @@ window.P_AUDIENCE = [
       ]
     }
   ],
+  mistakes: {
+    d: "Managed tenancies fail on authority: who was entitled to decide, and whether anything in writing says so.",
+    items: [
+      {
+        h: "Acting beyond the management agreement",
+        p: "Approving a tenant, agreeing an early exit or settling a deduction without the authority to do it puts the cost on the agent rather than the owner."
+      },
+      {
+        h: "Signing the lease in the wrong name",
+        p: "Whether the agent signs as agent for a named owner, or the owner signs directly, decides who the tenant can pursue and who can serve notice."
+      },
+      {
+        h: "Holding deposits with no written instruction",
+        p: "Who holds the money, in whose name and under which state's scheme is a question for the management agreement, not for the end of the tenancy. See [security deposit](/glossary/security-deposit)."
+      },
+      {
+        h: "No written spend limit for repairs",
+        p: "Without a threshold, every urgent repair is a judgement call the agent defends afterwards."
+      },
+      {
+        h: "Ending the management agreement without settling the deposits",
+        p: "Handover between agents is where deposits most often become untraceable, and the tenant's claim survives the handover."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals worth acting on — for an owner appointing an agent, and for an agent taking on somebody else's portfolio.",
+    items: [
+      {
+        h: "A management agreement with no termination clause",
+        p: "An arrangement that cannot be ended cleanly is one that ends expensively."
+      },
+      {
+        h: "Deposits held in the agent's general account",
+        p: "Where the state requires separate holding this is a compliance failure. Where it does not, it is still the agent's insolvency risk sitting on the tenant's money."
+      },
+      {
+        h: "Nobody named as responsible for compliance",
+        p: "Disclosures, licensing and deposit deadlines need an owner. “The office” is not one."
+      },
+      {
+        h: "The outgoing owner cannot produce the existing leases",
+        p: "You are inheriting the tenancies whether or not the paperwork comes with them, along with whatever is wrong with them."
+      }
+    ]
+  },
   faq: [
     { q: "Does a property manager need a licence?", a: "In most states, yes — managing residential property for another for compensation is usually a licensed real estate activity, requiring a broker's licence or a dedicated property management licence, and bringing trust-account and record-keeping rules with it. A few states exempt on-site managers of a single property or salaried employees of the owner. Check your state before you take a fee." },
     { q: "Should the lease name the owner or the management company?", a: "Name the owner as landlord and the management company as authorised agent, signing as agent. Naming the manager as landlord can transfer the landlord's obligations to them personally, including deposit liability. Most states separately require the tenant to be told who is authorised to receive notices, which the same clause can satisfy." },

@@ -69,6 +69,48 @@ window.P_DOCS_A = [
       ]
     }
   ],
+  mistakes: {
+    d: "This page routes rather than drafts, so the errors that belong to it are errors of choosing — picking a document by the word people use for it rather than by what the tenancy actually is.",
+    items: [
+      {
+        h: "Choosing by the name instead of the term",
+        p: "“Lease” and “rental agreement” are used interchangeably in ordinary speech. What decides which document you need is whether the tenancy runs for a fixed period or renews by the month — not which of the two words sounds more official."
+      },
+      {
+        h: "Taking a generic US template as finished",
+        p: "A template with no state on it cannot carry the disclosures your state requires. The agreement may be perfectly enforceable on its own terms and still leave you in breach of a rule that sits outside it."
+      },
+      {
+        h: "Making one document do two jobs",
+        p: "A lease that also tries to be a [roommate agreement](/agreements/real-estate/roommate-agreement) or a [sublease](/agreements/real-estate/sublease-agreement) usually does neither well. Each document here exists because it settles something none of the others settle."
+      },
+      {
+        h: "Leaving it undocumented because it is family",
+        p: "An oral tenancy is still a tenancy in most states, and it still has to be ended lawfully. Informality removes the evidence, not the obligations."
+      }
+    ]
+  },
+  flags: {
+    d: "What to notice about a rental document somebody has handed you, before you get as far as reading the clauses.",
+    items: [
+      {
+        h: "No state named anywhere in it",
+        p: "Residential tenancy is state and often city law. A document that never names a jurisdiction was not written for yours."
+      },
+      {
+        h: "Deposit terms left blank to fill in later",
+        p: "Most states cap the amount, regulate where it is held and set a deadline for its return. A blank is where those rules get broken. See [security deposit](/glossary/security-deposit)."
+      },
+      {
+        h: "The other side wants to skip the written agreement",
+        p: "Whoever proposes the handshake is usually the party who benefits from there being no record of what was agreed."
+      },
+      {
+        h: "The parties are not named precisely",
+        p: "“The tenant” with no full legal name, or a company that appears in no register, is a party you may not be able to pursue."
+      }
+    ]
+  },
   faq: [
     { q: "Do I need a written lease, or is a verbal agreement enough?", a: "Most states will recognise a verbal residential tenancy of a year or less, and it usually defaults to month-to-month. But a tenancy for longer than a year generally has to be in writing to be enforceable under the state's statute of frauds, and even a short verbal tenancy leaves you with no record of the rent, the deposit or the condition of the property. Written is not a formality here; it is the only version anyone can prove." },
     { q: "Can I use the same lease for every state I own property in?", a: "No. The body of the agreement travels well, but the disclosures, the deposit handling rules, the notice periods and the late-fee limits are all state law, and several of them are also city law. Use one structure and swap the state-specific parts, rather than one file everywhere." },
@@ -198,6 +240,56 @@ window.P_DOCS_A = [
   ],
   faq2At: 3,
   faq2H: "Signing, deposits and who is liable",
+  mistakes: {
+    d: "A fixed-term lease usually fails on what was left out of it rather than on the clauses that made it in.",
+    items: [
+      {
+        h: "Leaving the end date to be settled later",
+        p: "A fixed term needs both a start and an end. Without both you have created a periodic tenancy by accident, and the notice rules that govern it are not the ones you had in mind."
+      },
+      {
+        h: "Copying a clause you cannot explain",
+        p: "If you cannot say what a clause protects against, you cannot argue it. Clauses purporting to waive a tenant's statutory rights are generally void, and arriving with several of them does not help the clauses that were sound."
+      },
+      {
+        h: "Not naming every adult who will live there",
+        p: "Somebody who is not on the lease owes you nothing under it, and in several states is still difficult to remove. See [joint and several liability](/glossary/joint-and-several-liability)."
+      },
+      {
+        h: "Signing before any condition record exists",
+        p: "The move-in record is the baseline every later deduction is measured against. Made afterwards, it proves nothing. See [a new tenant moving in](/use-cases/new-tenant-moving-in)."
+      },
+      {
+        h: "Treating the deposit clause as free text",
+        p: "The cap, the account it sits in and the return deadline are set by state law. A lease cannot contract out of any of them. See [security deposit](/glossary/security-deposit)."
+      }
+    ]
+  },
+  flags: {
+    d: "What to look for in a lease somebody else drafted and is waiting for you to sign.",
+    items: [
+      {
+        h: "“Tenant accepts the property as is”",
+        p: "Paired with no condition report, that sentence is doing its work at move-out rather than at move-in."
+      },
+      {
+        h: "Entry at any time, or at the landlord's discretion",
+        p: "Most states require advance written notice except in an emergency, and the clause does not override the statute. See [quiet enjoyment](/glossary/quiet-enjoyment)."
+      },
+      {
+        h: "A waiver of the right to sue, or to a jury",
+        p: "Widely unenforceable in residential tenancies, and a reliable sign the document was not drafted for residential use."
+      },
+      {
+        h: "Automatic renewal buried in the term clause",
+        p: "A term that rolls into another fixed year unless you give notice months ahead is a commitment you are making now, not later. See [lease renewal](/agreements/real-estate/lease-renewal-agreement)."
+      },
+      {
+        h: "The deposit held in the landlord's general account",
+        p: "Several states require a separate or interest-bearing account, and a written notice of where the money sits."
+      }
+    ]
+  },
   faq: [
     { q: "How long should a residential lease be?", a: "Twelve months is the American default, and it is the default because it matches the rhythm of the rental market: you re-advertise in the same season you let last time. Six months suits an uncertain tenant or an untested property; two years suits a tenant you want to keep and a market you expect to soften. What matters more than the length is that the end date lands in a month when your area actually has renters looking." },
     { q: "Can I raise the rent during a fixed-term lease?", a: "No, not unless the lease itself contains a clause providing for it, which is unusual in a one-year residential lease. A fixed term means a fixed rent for that term. You can raise the rent at renewal, subject to any state notice requirement and any local rent-stabilisation rule, using a [lease renewal agreement](/agreements/real-estate/lease-renewal-agreement)." },
@@ -284,6 +376,48 @@ window.P_DOCS_A = [
       ]
     }
   ],
+  mistakes: {
+    d: "A periodic tenancy is easy to create and easy to mishandle, because nearly everything about it turns on notice given properly and counted correctly.",
+    items: [
+      {
+        h: "Counting the notice period from the wrong day",
+        p: "Many states run the period to the end of a rental period rather than from the day the letter was sent. Counting from the wrong day produces a notice that is simply invalid."
+      },
+      {
+        h: "Raising the rent in a text or a conversation",
+        p: "An increase on a periodic tenancy generally needs its own written notice, with its own notice period, separate from the notice that would end the tenancy."
+      },
+      {
+        h: "Assuming month-to-month means somebody can be asked to leave quickly",
+        p: "The tenancy is flexible; the removal process is not. Ending the agreement and recovering possession remain two different things. See [notice to vacate](/agreements/real-estate/notice-to-vacate)."
+      },
+      {
+        h: "Letting a fixed term lapse without deciding anything",
+        p: "In most states the tenancy converts rather than ends, usually to month-to-month. See [holdover tenant](/glossary/holdover-tenant)."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals that the flexibility of a periodic tenancy is being used against one side rather than shared by both.",
+    items: [
+      {
+        h: "A notice period that is not reciprocal",
+        p: "Thirty days from the tenant and seven from the landlord is a term many states will not enforce, and a statement of intent either way."
+      },
+      {
+        h: "Increases arriving faster than the notice period allows",
+        p: "A second increase before the first has taken effect suggests the notice rules are not being followed at all."
+      },
+      {
+        h: "“This agreement may be terminated immediately”",
+        p: "No ordinary residential tenancy in the United States ends on no notice outside a court process."
+      },
+      {
+        h: "A move to month-to-month proposed just before a sale",
+        p: "Flexibility that appears when the property is about to be marketed is flexibility for the seller."
+      }
+    ]
+  },
   faq: [
     { q: "Is a month-to-month agreement legally binding?", a: "Yes. It is a binding contract for each monthly period, renewed automatically. The tenant owes the rent for any period that has begun, and the landlord owes the same habitability and quiet-enjoyment obligations as under any lease. The only thing that is not binding is what happens after the current period, and that is by design." },
     { q: "My fixed-term lease just ended and nobody signed anything. What are we on?", a: "In most states, if the tenant stays and you accept rent, the tenancy has converted to month-to-month on the same terms as the expired lease. That is usually fine, but it means your rent is frozen at the old amount until you give a proper increase notice, and either side can end it on short notice. If you want another fixed term, use a [lease renewal agreement](/agreements/real-estate/lease-renewal-agreement) instead of letting it roll." },

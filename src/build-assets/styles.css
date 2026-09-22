@@ -165,6 +165,26 @@ strong{color:var(--tx); font-weight:700}
 .note p{margin:0 0 9px} .note p:last-child{margin-bottom:0}
 .note ul{margin-bottom:0}
 
+.pitfalls{border:1px solid var(--bd); border-radius:var(--r-lg); background:var(--bg); margin:18px 0; overflow:hidden}
+.pitfalls .pf-d{
+  margin:0; padding:13px 17px; font-size:13.8px; line-height:1.55; color:var(--tx-3);
+  background:var(--bg-2); border-bottom:1px solid var(--bd-2);
+}
+.pf-list{list-style:none; margin:0; padding:0}
+.pf-list li{position:relative; margin:0; padding:13px 17px 13px 45px; border-bottom:1px solid var(--bd-2); font-size:14.5px}
+.pf-list li:last-child{border-bottom:0}
+.pf-list b{display:block; color:var(--tx); font-family:var(--display); font-size:15px; font-weight:700; letter-spacing:-.012em; margin-bottom:2px}
+.pf-list span{color:var(--tx-2)}
+.pf-list li::before{
+  position:absolute; left:17px; top:15px; width:17px; height:17px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--mono); font-size:10px; font-weight:500; line-height:1;
+}
+.mistakes .pf-list li::before{content:"✕"; background:var(--bd-2); color:var(--tx-3)}
+.flags{border-color:var(--amber)}
+.flags .pf-d{background:var(--amber-bg); border-bottom-color:var(--amber); color:var(--amber-tx)}
+.flags .pf-list li::before{content:"!"; background:var(--amber); color:var(--brand-darkest)}
+
 .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(212px,1fr)); gap:14px; margin:18px 0}
 .card{background:var(--bg); border:1px solid var(--bd); border-radius:var(--r-lg); padding:18px 18px; display:flex; flex-direction:column; gap:7px}
 .card h4{font-size:15.5px; font-weight:700; margin:0}

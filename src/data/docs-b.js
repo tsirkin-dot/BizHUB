@@ -55,6 +55,48 @@ window.P_DOCS_B = [
       ]
     }
   ],
+  mistakes: {
+    d: "A sublease goes wrong in one direction almost every time: the original tenant behaves as though they have left the deal, when they have not.",
+    items: [
+      {
+        h: "Subletting without written consent",
+        p: "Most leases require it and many prohibit subletting outright. Consent given verbally by an agent is the version nobody can produce later."
+      },
+      {
+        h: "Letting the sublease outlast the head lease",
+        p: "A sublease cannot run past the tenancy it sits inside. A date beyond it is a promise the original tenant has no power to keep."
+      },
+      {
+        h: "Charging more than the head rent where that is restricted",
+        p: "Some cities cap or prohibit subletting at a profit, and a rent-stabilised unit almost always does."
+      },
+      {
+        h: "Confusing a sublease with an assignment",
+        p: "An assignment transfers the tenancy and can release you. A sublease does not: you stay liable to the landlord for rent and for damage."
+      }
+    ]
+  },
+  flags: {
+    d: "What a prospective subtenant should notice before handing anybody money.",
+    items: [
+      {
+        h: "No copy of the head lease offered",
+        p: "The head lease sets every limit on what the sublease can promise you. Someone unwilling to show it may be subletting in breach of it."
+      },
+      {
+        h: "The landlord has never heard of you",
+        p: "If the landlord cannot confirm the arrangement, your occupation may end at the moment they discover it."
+      },
+      {
+        h: "The deposit is paid to someone who is not the landlord",
+        p: "Money held by the original tenant is money you recover from the original tenant, wherever they are by then. See [security deposit](/glossary/security-deposit)."
+      },
+      {
+        h: "The dates do not fit inside the head lease",
+        p: "A sublease ending after the head lease cannot deliver the last part of what it sells."
+      }
+    ]
+  },
   faq: [
     { q: "Can my landlord evict me for subletting without permission?", a: "If the lease prohibits subletting or requires consent, subletting without it is a breach, and in most states a breach of a material lease term is grounds to begin eviction proceedings. Whether a landlord would is a different question from whether they could. The risk is not worth the fortnight it takes to ask." },
     { q: "Who returns the subtenant's deposit?", a: "The sublandlord — the original tenant — because that is who took it. Whether they get their own deposit back from the landlord is a separate matter settled at the end of the master lease, and the two should not be tied together in the sublease. A subtenant who leaves the room in good condition should not have to wait for the master lease to end to be repaid." },
@@ -130,6 +172,48 @@ window.P_DOCS_B = [
       ]
     }
   ],
+  mistakes: {
+    d: "A roommate agreement settles matters between tenants. Nearly every mistake is an attempt to make it settle something it has no power over.",
+    items: [
+      {
+        h: "Expecting it to bind the landlord",
+        p: "The landlord is not a party to it. However the rent is divided between you, the lease is what the landlord enforces. See [joint and several liability](/glossary/joint-and-several-liability)."
+      },
+      {
+        h: "Not writing down what happens when somebody leaves early",
+        p: "This is the clause worth the most and the one most often missing: who finds the replacement, who carries the rent until then, and what becomes of the leaver's share of the deposit."
+      },
+      {
+        h: "Splitting the deposit informally",
+        p: "The landlord returns one deposit to the tenants named on the lease. Any split between roommates has to be written down or it is argued about at the end."
+      },
+      {
+        h: "Assuming equal rooms mean equal shares",
+        p: "Unequal rooms, parking or storage are exactly the things that become grievances later if the agreement does not name them now."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals from a prospective roommate that the arrangement carries more risk than it appears to.",
+    items: [
+      {
+        h: "They will not go on the lease",
+        p: "Someone off the lease owes the landlord nothing, which means any shortfall lands on the people who are on it."
+      },
+      {
+        h: "No interest in anything written",
+        p: "The person least interested in a written split is usually the person who expects to benefit from there being none."
+      },
+      {
+        h: "Already living there before anything is signed",
+        p: "Occupation creates rights in many states. Regularising it afterwards is considerably harder than agreeing it first."
+      },
+      {
+        h: "They want to pay their share to you in cash",
+        p: "Without a record you cannot show the landlord the rent arrived, and you cannot show the roommate it did not."
+      }
+    ]
+  },
   faq: [
     { q: "Is a roommate agreement legally enforceable?", a: "Between the roommates, generally yes: it is an ordinary contract between adults over money and conduct, and a small-claims court will read it. It is not enforceable against the landlord, who never agreed to it. In practice its main value is evidentiary — it settles what everybody agreed to, which is the thing that would otherwise be a matter of competing recollections." },
     { q: "Do all the roommates have to be on the lease?", a: "Not necessarily, and it changes the picture a great deal. A roommate on the lease is the landlord's tenant with full rights and full liability. A roommate not on the lease is usually an occupant with no direct relationship to the landlord — which can mean they have no security of tenure, and also that the landlord cannot pursue them for rent. Know which arrangement you are in before you sign anything." },
@@ -212,6 +296,52 @@ window.P_DOCS_B = [
       ]
     }
   ],
+  mistakes: {
+    d: "Screening errors are mostly compliance errors, and almost all of them happen before anybody has been turned down.",
+    items: [
+      {
+        h: "Asking a question that maps to a protected class",
+        p: "Familial status and religion catch people who had no discriminatory intent whatsoever. Intent is not the test; the effect of the question is."
+      },
+      {
+        h: "Running a check without written consent",
+        p: "Consumer report checks require the applicant's documented permission. A verbal yes is not a record of one."
+      },
+      {
+        h: "Charging a fee larger than the screening actually costs",
+        p: "Application fees are capped or prohibited in several states, and a fee that turns a profit is the version that attracts attention."
+      },
+      {
+        h: "Declining without the notice you owe",
+        p: "If the decision rested on a consumer report, adverse action notice obligations apply. Silence is not a lawful decline."
+      },
+      {
+        h: "Keeping no record of why each applicant was chosen",
+        p: "Consistent written criteria applied to every applicant are what answer a complaint. Recollection is not."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals worth a second question — every one about the paperwork, none about the applicant. Anything that maps to a protected class is not a red flag, it is a fair-housing problem of your own making.",
+    items: [
+      {
+        h: "Dates that do not line up between employer and previous landlord",
+        p: "Two references describing different years is a documentary inconsistency, and asking about it is fair."
+      },
+      {
+        h: "A previous landlord reachable only on a number the applicant supplied",
+        p: "Verify the property against public records rather than relying on the contact given to you."
+      },
+      {
+        h: "Cash up front offered in place of screening",
+        p: "Several months paid at once instead of any check is a proposal to remove your only record of who is moving in."
+      },
+      {
+        h: "Consent withheld for a check explained in advance",
+        p: "The refusal itself is the signal, and it is about the process rather than the person."
+      }
+    ]
+  },
   faq: [
     { q: "Can I just ask for a credit report without a signed application?", a: "No. A consumer reporting agency may supply a tenant screening report only for a permissible purpose, and in the rental context that rests on the applicant's written authorisation. Running a report without it exposes you to liability under the Fair Credit Reporting Act, and reputable screening services will not process the request in the first place." },
     { q: "How much income should I require?", a: "A common benchmark in the United States is gross monthly income of about three times the rent, but it is a convention rather than a rule, and several cities now restrict rigid income multiples where a housing voucher covers part of the rent. Whatever threshold you choose, write it down before you advertise and apply it to every applicant identically." },
@@ -280,6 +410,48 @@ window.P_DOCS_B = [
       ]
     }
   ],
+  mistakes: {
+    d: "Renewal errors are errors of silence: both sides assume the tenancy simply continues on the old terms, and it does not.",
+    items: [
+      {
+        h: "Letting the term end with nothing signed",
+        p: "What follows is decided by state law rather than by either party, usually by conversion to a periodic tenancy. See [holdover tenant](/glossary/holdover-tenant)."
+      },
+      {
+        h: "Putting a rent increase inside the renewal and nothing else",
+        p: "Where the state requires separate notice of an increase, burying it in the renewal document does not satisfy that requirement."
+      },
+      {
+        h: "Not re-checking the deposit against the new rent",
+        p: "Where the cap is a multiple of rent, an increase can put an existing deposit over the line. See [security deposit](/glossary/security-deposit)."
+      },
+      {
+        h: "Treating renewal as a fresh start",
+        p: "Renewal continues a tenancy. Existing arrears, existing damage and the original condition record all carry across unless the document says otherwise."
+      }
+    ]
+  },
+  flags: {
+    d: "What to read closely in a renewal offered to you, particularly one that arrives late.",
+    items: [
+      {
+        h: "More has changed than the dates and the rent",
+        p: "A renewal is the easiest moment to insert a term nobody would have signed at the start. Compare it against the original clause by clause."
+      },
+      {
+        h: "Renewal conditional on waiving something",
+        p: "A renewal offered only if you give up a repair claim or a deposit dispute is a settlement, and it should be priced as one."
+      },
+      {
+        h: "Pressure to sign on the day the term ends",
+        p: "The deadline is being used as leverage. The tenancy does not usually evaporate at midnight; find out what your state says it converts to first."
+      },
+      {
+        h: "A substantial increase with no notice period",
+        p: "Where the state sets a minimum notice for increases, it applies at renewal as well."
+      }
+    ]
+  },
   faq: [
     { q: "How much notice should I give a tenant about renewal?", a: "Give more than the law requires. Many states require thirty to sixty days for a rent increase or a non-renewal, but sixty to ninety days before the end of the term is the practical window: it gives the tenant time to decide, and it gives you time to advertise if they decline. A renewal offer that arrives three weeks before the end of the term reads as an ultimatum whether it was meant as one or not." },
     { q: "Can a tenant refuse to renew and just leave at the end of the term?", a: "Yes. A fixed-term lease ends on its end date; neither side is obliged to renew unless the lease contains a renewal option. The tenant should still confirm in writing that they are leaving and on what date, and give whatever notice the lease requires — many leases require thirty or sixty days' notice of non-renewal even though the term is ending anyway." },
@@ -353,6 +525,48 @@ window.P_DOCS_B = [
       ]
     }
   ],
+  mistakes: {
+    d: "A mutual early exit fails when it ends the occupation without ending the obligations that came with it.",
+    items: [
+      {
+        h: "Handing back the keys with nothing signed",
+        p: "Returning possession is not the same as being released from the term. Without a written release the remaining rent can still be claimed."
+      },
+      {
+        h: "Not settling the deposit in the same document",
+        p: "The deposit is the largest thing left outstanding. An agreement that ends the tenancy and leaves the money open has settled the easy half. See [security deposit](/glossary/security-deposit)."
+      },
+      {
+        h: "Leaving the final rent date ambiguous",
+        p: "Name the last day rent is owed for and the last day of occupation. If they differ, say so on purpose."
+      },
+      {
+        h: "Forgetting the other tenants on the lease",
+        p: "Where liability is joint and several, releasing one tenant without addressing the others creates a question everybody answers differently later. See [joint and several liability](/glossary/joint-and-several-liability)."
+      }
+    ]
+  },
+  flags: {
+    d: "Signals in a termination somebody is asking you to sign.",
+    items: [
+      {
+        h: "A release with the figure left blank",
+        p: "The blank is filled in by whoever holds the document after you have signed it."
+      },
+      {
+        h: "“We'll sort the deposit out afterwards”",
+        p: "Afterwards is when your leverage is gone and the property is re-let."
+      },
+      {
+        h: "A termination offered instead of a repair",
+        p: "Where the alternative to the agreement is a habitability claim, ending the tenancy quietly is worth something to the other side."
+      },
+      {
+        h: "Nothing at all about the rest of the term",
+        p: "An agreement silent on the remaining months has not waived them."
+      }
+    ]
+  },
   faq: [
     { q: "Can my landlord refuse to let me out of my lease early?", a: "Yes, unless you have a statutory or contractual right to terminate. A fixed-term lease binds both sides, and a landlord is entitled to hold you to it. In practice most will negotiate, because the alternative is chasing an absent tenant for rent while the property sits empty — and their duty to mitigate means they have to try to re-rent it anyway." },
     { q: "Do I still get my deposit back if we terminate early?", a: "Yes. Ending the lease early does not forfeit the deposit. It is still held against unpaid rent and damage beyond normal wear and tear, and the statutory deadline for returning it with an itemised statement runs from the date the tenancy ends and possession is returned. Make sure the termination agreement says whether the deposit is being applied to the final sum or returned separately." },
@@ -429,6 +643,52 @@ window.P_DOCS_B = [
       ]
     }
   ],
+  mistakes: {
+    d: "A notice does one job on a fixed clock, and most failures are procedural. A defective notice usually has to be served again from the beginning, which costs the whole period over.",
+    items: [
+      {
+        h: "Counting the days wrong",
+        p: "Whether the day of service counts, whether the period runs to the end of a rental period and whether weekends are included are all state questions, and getting any of them wrong invalidates the notice."
+      },
+      {
+        h: "Serving it in a way the state does not recognise",
+        p: "Several states specify the permitted methods and require proof of service. A text message is rarely one of them."
+      },
+      {
+        h: "Naming the wrong parties",
+        p: "Every adult tenant generally has to be named. A notice that misses one may not end the tenancy for any of them."
+      },
+      {
+        h: "Treating the notice as the eviction",
+        p: "It ends a tenancy or starts a clock. It removes nobody — only a court order does that. See [when a tenant stops paying rent](/use-cases/tenant-stopped-paying-rent)."
+      },
+      {
+        h: "Accepting rent after serving it",
+        p: "In many states that waives the notice and can create a fresh tenancy. See [holdover tenant](/glossary/holdover-tenant)."
+      }
+    ]
+  },
+  flags: {
+    d: "What to check on a notice that has been served on you.",
+    items: [
+      {
+        h: "No date of service anywhere on it",
+        p: "Without a service date the clock cannot be verified, and the notice may not have started one."
+      },
+      {
+        h: "A demand to be out in 24 or 48 hours",
+        p: "No ordinary residential tenancy in the United States ends on that timescale outside a court process."
+      },
+      {
+        h: "A threat to change locks or cut utilities",
+        p: "Self-help eviction is unlawful in every state, and a notice threatening it tells you how the rest is likely to be handled."
+      },
+      {
+        h: "Signed by somebody with no stated authority",
+        p: "An agent serving notice should say whose agent they are. A signature with no capacity given is a gap worth raising."
+      }
+    ]
+  },
   faq: [
     { q: "Can I give notice by text or email?", a: "For a tenant telling a landlord they are leaving, many leases now permit it and most landlords accept it — but send it in the form the lease specifies as well, and keep a copy. For a landlord's notice that might need to support an eviction, follow the statutory service method exactly. A notice a judge will not accept is not a notice." },
     { q: "My landlord gave me notice but I haven't done anything wrong. Can they do that?", a: "In most of the United States a landlord may end a month-to-month tenancy, or decline to renew a fixed term, without giving a reason, provided the notice period is right. The exceptions are significant and growing: just-cause jurisdictions require a permitted ground, and everywhere a notice given because of your race, religion, family status or disability, or in retaliation for a complaint about conditions, is unlawful regardless of the notice period." },
