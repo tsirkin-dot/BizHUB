@@ -111,6 +111,7 @@ window.P_DOCS_A = [
       }
     ]
   },
+  ask: "Renting out my duplex in Ohio, $1,800 a month starting September 1.",
   faq: [
     { q: "Do I need a written lease, or is a verbal agreement enough?", a: "Most states will recognise a verbal residential tenancy of a year or less, and it usually defaults to month-to-month. But a tenancy for longer than a year generally has to be in writing to be enforceable under the state's statute of frauds, and even a short verbal tenancy leaves you with no record of the rent, the deposit or the condition of the property. Written is not a formality here; it is the only version anyone can prove." },
     { q: "Can I use the same lease for every state I own property in?", a: "No. The body of the agreement travels well, but the disclosures, the deposit handling rules, the notice periods and the late-fee limits are all state law, and several of them are also city law. Use one structure and swap the state-specific parts, rather than one file everywhere." },
@@ -290,6 +291,7 @@ window.P_DOCS_A = [
       }
     ]
   },
+  ask: "One-year lease for a 2-bed in Austin, $2,100 a month from October 1, one cat.",
   faq: [
     { q: "How long should a residential lease be?", a: "Twelve months is the American default, and it is the default because it matches the rhythm of the rental market: you re-advertise in the same season you let last time. Six months suits an uncertain tenant or an untested property; two years suits a tenant you want to keep and a market you expect to soften. What matters more than the length is that the end date lands in a month when your area actually has renters looking." },
     { q: "Can I raise the rent during a fixed-term lease?", a: "No, not unless the lease itself contains a clause providing for it, which is unusual in a one-year residential lease. A fixed term means a fixed rent for that term. You can raise the rent at renewal, subject to any state notice requirement and any local rent-stabilisation rule, using a [lease renewal agreement](/agreements/real-estate/lease-renewal-agreement)." },
@@ -418,6 +420,7 @@ window.P_DOCS_A = [
       }
     ]
   },
+  ask: "Month-to-month for my basement apartment in Denver, $1,200, 30 days' notice either way.",
   faq: [
     { q: "Is a month-to-month agreement legally binding?", a: "Yes. It is a binding contract for each monthly period, renewed automatically. The tenant owes the rent for any period that has begun, and the landlord owes the same habitability and quiet-enjoyment obligations as under any lease. The only thing that is not binding is what happens after the current period, and that is by design." },
     { q: "My fixed-term lease just ended and nobody signed anything. What are we on?", a: "In most states, if the tenant stays and you accept rent, the tenancy has converted to month-to-month on the same terms as the expired lease. That is usually fine, but it means your rent is frozen at the old amount until you give a proper increase notice, and either side can end it on short notice. If you want another fixed term, use a [lease renewal agreement](/agreements/real-estate/lease-renewal-agreement) instead of letting it roll." },

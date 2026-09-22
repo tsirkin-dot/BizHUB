@@ -67,6 +67,7 @@ window.P_GLOSSARY = [
       ]
     }
   ],
+  ask: "Lease for a Michigan rental where the deposit terms follow the state rules exactly.",
   faq: [
     { q: "How much can a landlord legally charge for a security deposit?", a: "It depends on the state. Many cap it at one or two months' rent; several have no statutory cap at all; and in some, last month's rent paid in advance counts towards the same ceiling. Where there is no cap, the market sets it, and a deposit noticeably above local norms narrows the applicant pool rather than improving it." },
     { q: "Does a security deposit earn interest?", a: "In several states and a number of cities, yes: the deposit must be held in an interest-bearing account and the interest paid to the tenant annually or at the end of the tenancy. In most states it does not. Where interest is required, failing to pay it is usually a violation in its own right, separate from anything to do with the deposit's return." },
@@ -153,6 +154,7 @@ window.P_GLOSSARY = [
       ]
     }
   ],
+  ask: "Move-out inspection checklist that separates ordinary wear from chargeable damage.",
   faq: [
     { q: "Can a landlord charge for repainting?", a: "For fading and light scuffing after a normal tenancy, generally no — paint is wear. For walls a tenant painted without permission, marked heavily, or damaged, generally yes, and in many states depreciated by how old the paint already was. A blanket repainting charge applied to every departing tenant regardless of condition is the version most likely to be struck out." },
     { q: "How many nail holes are too many?", a: "There is no number. Ordinary picture hanging is normally wear; a wall requiring filling and refinishing because of the quantity or the size of the fixings is normally damage. Some leases set the rule expressly — no fixings, or fixings permitted with holes filled on departure — and where they do, the lease governs." },
@@ -225,6 +227,7 @@ window.P_GLOSSARY = [
       ]
     }
   ],
+  ask: "Lease for three roommates in Boston where each is liable for the whole rent.",
   faq: [
     { q: "Can I be released from a lease if I move out and the others stay?", a: "Only with the landlord's written release. Moving out does not end your liability — you remain on the lease and remain liable for the rent for the rest of the term. Ask for a written substitution: the new tenant signs, the landlord consents, and you are expressly released. Without that release you are still on the hook whatever anybody says verbally." },
     { q: "Does the landlord have to try the defaulting tenant first?", a: "No. That is precisely what 'several' means: the landlord may pursue any one liable party for the whole amount, in any order, without joining the others. It can feel deeply unfair to the tenant who has paid every month, and it is nonetheless the standard position." },
@@ -299,6 +302,7 @@ window.P_GLOSSARY = [
       ]
     }
   ],
+  ask: "Lease with a California entry clause, 24 hours' written notice except in an emergency.",
   faq: [
     { q: "Can my landlord enter without telling me?", a: "Only in a genuine emergency, in nearly every state. For repairs, inspections or showings, advance written notice is required — commonly twenty-four hours — and entry must be at reasonable hours. A landlord who does it repeatedly is breaching the covenant of quiet enjoyment, and in several states there is a statutory remedy specifically for unlawful entry." },
     { q: "Is quiet enjoyment about noise?", a: "Almost never, despite the name. It protects undisturbed possession. Noise becomes relevant when it is caused by the landlord, or by another tenant of the same landlord who could be dealt with under their own lease and is not. Noise from an unrelated neighbour is a matter for the local noise ordinance rather than the tenancy." },
@@ -371,6 +375,7 @@ window.P_GLOSSARY = [
       ]
     }
   ],
+  ask: "Lease for a Texas rental with a holdover clause covering what happens past the term.",
   faq: [
     { q: "Is a holdover tenant trespassing?", a: "No. They entered lawfully under a valid lease, which is why they cannot simply be removed. A landlord who changes the locks on a holdover tenant is committing an unlawful eviction in essentially every state, with the same statutory penalties as any other self-help eviction." },
     { q: "What happens if my landlord keeps taking rent after my lease ends?", a: "In most states you are now a month-to-month tenant on the terms of the expired lease, including the same rent, until either side gives proper notice or a new agreement is signed. That is usually a comfortable position, but it is also one either side can end on relatively short notice — so do not treat it as equivalent to another year." },

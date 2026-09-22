@@ -97,6 +97,7 @@ window.P_DOCS_B = [
       }
     ]
   },
+  ask: "Subletting my Chicago studio June to August, $1,400 a month, landlord already agreed.",
   faq: [
     { q: "Can my landlord evict me for subletting without permission?", a: "If the lease prohibits subletting or requires consent, subletting without it is a breach, and in most states a breach of a material lease term is grounds to begin eviction proceedings. Whether a landlord would is a different question from whether they could. The risk is not worth the fortnight it takes to ask." },
     { q: "Who returns the subtenant's deposit?", a: "The sublandlord — the original tenant — because that is who took it. Whether they get their own deposit back from the landlord is a separate matter settled at the end of the master lease, and the two should not be tied together in the sublease. A subtenant who leaves the room in good condition should not have to wait for the master lease to end to be repaid." },
@@ -214,6 +215,7 @@ window.P_DOCS_B = [
       }
     ]
   },
+  ask: "Three of us sharing a house in Portland, rent split 40/30/30, one room is much bigger.",
   faq: [
     { q: "Is a roommate agreement legally enforceable?", a: "Between the roommates, generally yes: it is an ordinary contract between adults over money and conduct, and a small-claims court will read it. It is not enforceable against the landlord, who never agreed to it. In practice its main value is evidentiary — it settles what everybody agreed to, which is the thing that would otherwise be a matter of competing recollections." },
     { q: "Do all the roommates have to be on the lease?", a: "Not necessarily, and it changes the picture a great deal. A roommate on the lease is the landlord's tenant with full rights and full liability. A roommate not on the lease is usually an occupant with no direct relationship to the landlord — which can mean they have no security of tenure, and also that the landlord cannot pursue them for rent. Know which arrangement you are in before you sign anything." },
@@ -342,6 +344,7 @@ window.P_DOCS_B = [
       }
     ]
   },
+  ask: "Application form for a single-family rental in Phoenix, two adults, with screening consent.",
   faq: [
     { q: "Can I just ask for a credit report without a signed application?", a: "No. A consumer reporting agency may supply a tenant screening report only for a permissible purpose, and in the rental context that rests on the applicant's written authorisation. Running a report without it exposes you to liability under the Fair Credit Reporting Act, and reputable screening services will not process the request in the first place." },
     { q: "How much income should I require?", a: "A common benchmark in the United States is gross monthly income of about three times the rent, but it is a convention rather than a rule, and several cities now restrict rigid income multiples where a housing voucher covers part of the rent. Whatever threshold you choose, write it down before you advertise and apply it to every applicant identically." },
@@ -452,6 +455,7 @@ window.P_DOCS_B = [
       }
     ]
   },
+  ask: "Renewing my tenant for another year in Tampa, rent going from $1,700 to $1,790.",
   faq: [
     { q: "How much notice should I give a tenant about renewal?", a: "Give more than the law requires. Many states require thirty to sixty days for a rent increase or a non-renewal, but sixty to ninety days before the end of the term is the practical window: it gives the tenant time to decide, and it gives you time to advertise if they decline. A renewal offer that arrives three weeks before the end of the term reads as an ultimatum whether it was meant as one or not." },
     { q: "Can a tenant refuse to renew and just leave at the end of the term?", a: "Yes. A fixed-term lease ends on its end date; neither side is obliged to renew unless the lease contains a renewal option. The tenant should still confirm in writing that they are leaving and on what date, and give whatever notice the lease requires — many leases require thirty or sixty days' notice of non-renewal even though the term is ending anyway." },
@@ -567,6 +571,7 @@ window.P_DOCS_B = [
       }
     ]
   },
+  ask: "Tenant wants out four months early in Raleigh, we agreed on one month's rent to release them.",
   faq: [
     { q: "Can my landlord refuse to let me out of my lease early?", a: "Yes, unless you have a statutory or contractual right to terminate. A fixed-term lease binds both sides, and a landlord is entitled to hold you to it. In practice most will negotiate, because the alternative is chasing an absent tenant for rent while the property sits empty — and their duty to mitigate means they have to try to re-rent it anyway." },
     { q: "Do I still get my deposit back if we terminate early?", a: "Yes. Ending the lease early does not forfeit the deposit. It is still held against unpaid rent and damage beyond normal wear and tear, and the statutory deadline for returning it with an itemised statement runs from the date the tenancy ends and possession is returned. Make sure the termination agreement says whether the deposit is being applied to the final sum or returned separately." },
@@ -689,6 +694,7 @@ window.P_DOCS_B = [
       }
     ]
   },
+  ask: "Ending a month-to-month in Sacramento, 60 days' notice, tenant has been there two years.",
   faq: [
     { q: "Can I give notice by text or email?", a: "For a tenant telling a landlord they are leaving, many leases now permit it and most landlords accept it — but send it in the form the lease specifies as well, and keep a copy. For a landlord's notice that might need to support an eviction, follow the statutory service method exactly. A notice a judge will not accept is not a notice." },
     { q: "My landlord gave me notice but I haven't done anything wrong. Can they do that?", a: "In most of the United States a landlord may end a month-to-month tenancy, or decline to renew a fixed term, without giving a reason, provided the notice period is right. The exceptions are significant and growing: just-cause jurisdictions require a permitted ground, and everywhere a notice given because of your race, religion, family status or disability, or in retaliation for a complaint about conditions, is unlawful regardless of the notice period." },

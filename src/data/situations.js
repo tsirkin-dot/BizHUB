@@ -123,6 +123,7 @@ window.P_SITUATIONS = [
       }
     ]
   },
+  ask: "First time renting out my condo in Boise, $1,500 a month, I want everything documented.",
   faq: [
     { q: "Do I need a lawyer to rent out my house?", a: "For a straightforward residential let in a state you can research, generally no — the documents are standard and the obligations are published. Get advice when something is unusual: a property with an unpermitted unit, a tenancy in a rent-stabilised city, a co-owner who disagrees, or any dispute that has already started. The cost of an hour of advice is small against a single failed eviction." },
     { q: "Can I rent to a friend without a written agreement?", a: "You can, and it is the most common way a friendship and a property both get damaged. A written lease protects the friendship precisely because it takes the awkward conversations — late rent, leaving early, the state of the kitchen — and settles them in advance, in writing, when nobody is angry." },
@@ -251,6 +252,7 @@ window.P_SITUATIONS = [
       }
     ]
   },
+  ask: "Move-in condition report for a furnished 1-bed in Nashville, keys handed over Saturday.",
   faq: [
     { q: "Can I give the keys before the deposit clears?", a: "You can, and you are then an unsecured creditor of somebody who is already living in your property. If the payment fails, your options are to pursue them for it or to begin ending a tenancy that has just started. Wait for cleared funds, or take payment by a method that clears instantly." },
     { q: "What if the tenant refuses to sign the condition report?", a: "Complete it anyway, note on it that the tenant declined to sign and the date, photograph everything, and send them a copy by a method that records delivery, inviting corrections within a stated period. An unsigned report that was demonstrably sent is far stronger than no report — but a tenant refusing to sign is itself worth a conversation about why." },
@@ -390,6 +392,7 @@ window.P_SITUATIONS = [
       }
     ]
   },
+  ask: "My tenant in Ohio is two months behind, $2,400 owed, I need the proper notice first.",
   faq: [
     { q: "Can I evict a tenant without going to court?", a: "No. Every American state requires a court process to remove a tenant who does not leave voluntarily, and every state prohibits self-help — locks, utilities, belongings. A landlord who takes possession without a court order is usually liable for statutory damages that exceed the rent they were owed." },
     { q: "The tenant offered part of what they owe. Should I take it?", a: "Take it, but protect your position first. In some states accepting rent after serving a notice waives the notice and you have to start again. Write, before or when you accept it, that the payment is accepted as partial payment towards the stated arrears, is not accepted in satisfaction, and does not waive the notice or reinstate the tenancy. If your state is strict on this point, get advice before accepting anything." },
@@ -535,6 +538,7 @@ window.P_SITUATIONS = [
       }
     ]
   },
+  ask: "Moving out of my Seattle apartment, $1,800 deposit, I want the letter if they keep it.",
   faq: [
     { q: "How long does a landlord have to return a security deposit?", a: "It is set by state law and runs from about fourteen to sixty days from the end of the tenancy, with thirty days being the most common figure. Almost every state requires an itemised written statement of any deductions within the same period. Check your own state's number — it is the single most useful fact in any deposit dispute." },
     { q: "Can my landlord charge me for cleaning?", a: "It depends on the state, the lease and the condition. Several states prohibit charging for ordinary cleaning between tenancies; others permit it where the lease provides for it and the property was left below the standard it was received in. A blanket cleaning fee applied regardless of condition is the version most likely to be struck out." },

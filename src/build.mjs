@@ -200,6 +200,11 @@ ${head}
     <div class="top-right">
       <button class="ghost" id="build" aria-pressed="false" title="Show how each block on the page was assembled"><span class="dot"></span>How it was built</button>
       <button class="ghost" id="theme" aria-label="Switch colour theme" title="Switch colour theme">Theme</button>
+${PAGES[cur] && PAGES[cur].cta ? `
+      <div class="seg" id="ctaseg" role="group" aria-label="Call to action style">
+        <button type="button" data-cta="pitch" aria-pressed="true">Pitch</button>
+        <button type="button" data-cta="chat" aria-pressed="false">Chat</button>
+      </div>` : ""}
       <a class="cta-top" href="${rel(cur, "/")}">Start a draft</a>
     </div>
   </div>
@@ -261,6 +266,28 @@ function renderPage(p) {
       `<ul class="pf-list">${d.items.map(i =>
         `<li><b>${rich(i.h, from)}</b><span>${rich(i.p, from)}</span></li>`).join("")}</ul></div></section>`
     : "";
+  /* Two ways into the product, rendered together and switched with CSS so the
+     choice costs no layout shift and the page still works with the script off.
+     The guided route is the default; the field is the same question asked in
+     the reader's own words, seeded with an example for this document. */
+  const heroCta = p.cta ? `<div class="hcta" data-ann="hcta">
+  <p class="hc-chips"><span>Free</span><span>No sign-up</span><span>Word or PDF</span><span>All 50 states</span></p>
+  <div class="hc-v hc-pitch">
+    <p class="hc-h">Skip the blank template.</p>
+    <p class="hc-p">Answer a few questions about the property, the term and the state, and get it back with your own numbers and your state's rules already in it.</p>
+    <div class="hc-act"><a class="btn" href="${rel(from, "/")}">${esc(p.cta.b1)}</a>
+      <button type="button" class="hc-alt" data-cta-to="chat">or describe it in your own words</button></div>
+  </div>
+  <div class="hc-v hc-chat">
+    <p class="hc-h">Describe what you need in plain English.</p>
+    <form class="hc-form" action="${rel(from, "/")}" method="get">
+      <textarea name="q" rows="2" placeholder="${attr(p.ask || "")}" aria-label="Describe the document you need"></textarea>
+      <button class="hc-send" type="submit" aria-label="Start the draft">→</button>
+    </form>
+    <p class="hc-note">About 90 seconds. <button type="button" class="hc-alt" data-cta-to="pitch">or answer a few questions instead</button></p>
+  </div>
+</div>` : "";
+
   const mistakesSec = pitfall(p.mistakes, "mistakes", "mistakes", "Common mistakes", "mistakes");
   const flagsSec = pitfall(p.flags, "flags", "flags", "Red flags", "red-flags");
   const mistakesH = p.mistakes && (p.mistakes.h || "Common mistakes");
@@ -319,6 +346,7 @@ function renderPage(p) {
 <h1>${rich(p.h1 || p.title, from)}</h1>
 <p class="lede">${rich(p.lede, from)}</p>
 ${p.job ? `<div class="job" data-ann="job"><span class="k">The one job this page owns</span><span class="v">${rich(p.job, from)}</span></div>` : ""}
+${heroCta}
 ${voice}${body}${mistakesSec}${flagsSec}${faq}${relSec}${cta}
 <div class="disc" data-ann="disc"><strong>Not legal advice.</strong> ${rich(p.disc ||
     "This page describes how residential rental documents usually work in the United States. Residential tenancy is governed by state and often city law, and a rule that is usual is not universal. Check your own state and city before you sign, and speak to a landlord–tenant attorney for anything contested.", from)}</div>

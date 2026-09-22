@@ -24,6 +24,38 @@
     try { localStorage.setItem(TKEY, next); } catch (e) {}
   });
 
+  /* ---------------- hero call to action ---------------- */
+  var CKEY = "bd-cta";
+  function applyCta(v) {
+    document.documentElement.setAttribute("data-cta", v);
+    var btns = document.querySelectorAll("#ctaseg button");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-cta") === v ? "true" : "false");
+    }
+  }
+  function setCta(v) {
+    applyCta(v);
+    try { localStorage.setItem(CKEY, v); } catch (e) {}
+  }
+  var savedCta = "pitch";
+  try { if (localStorage.getItem(CKEY) === "chat") savedCta = "chat"; } catch (e) {}
+  applyCta(savedCta);
+  document.addEventListener("click", function (e) {
+    var el = e.target;
+    while (el && el !== document.body) {
+      var to = el.getAttribute && (el.getAttribute("data-cta") || el.getAttribute("data-cta-to"));
+      if (to === "pitch" || to === "chat") {
+        setCta(to);
+        if (el.getAttribute("data-cta-to")) {
+          var ta = document.querySelector(".hc-form textarea");
+          if (to === "chat" && ta) ta.focus();
+        }
+        return;
+      }
+      el = el.parentNode;
+    }
+  });
+
   /* ---------------- mobile page tree ---------------- */
   var rail = document.getElementById("rail"), burger = document.getElementById("burger");
   function closeRail() {
@@ -151,6 +183,9 @@
     answer: { t: "The direct answer", src: "Vectorscope",
       p: "The first one or two sentences under the H2 answer the heading outright, with a full subject, predicate and object and no pronouns pointing at an earlier paragraph. This is the sentence a retrieval system lifts, and it has to make sense with everything around it stripped away.",
       r: "Rule: the answer sits before the evidence, never after it and never split across hero, FAQ and footer." },
+    hcta: { t: "Two ways in, above the fold", src: "Content rules",
+      p: "The same offer put twice: a guided route for somebody who wants to be asked the questions, and a plain-language field for somebody who already knows what they need and would rather say it. The switch is in the header, and the field is seeded with an example written for this document rather than a generic one.",
+      r: "Rule: one of the two is visible at a time, and the default survives the script failing to load." },
     mistakes: { t: "Common mistakes", src: "E-E-A-T",
       p: "Everything here is something the reader does to themselves: a step skipped, a document not kept, a clause agreed to without reading it. Each entry names the act first and the consequence second, because the act is what somebody recognises in their own behaviour.",
       r: "Rule: every entry is inside the reader's control. If they can only notice it happening to them, it is a red flag instead." },

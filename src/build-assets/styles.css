@@ -301,6 +301,52 @@ td strong{color:var(--tx)}
 .scope-foot{padding:13px 18px; border-top:1px solid var(--bd-2); background:var(--bg-2)}
 .scope-note code{font-family:var(--mono); font-size:11.5px; background:var(--bg-3); padding:1px 5px; border-radius:4px; color:var(--tx-2)}
 
+/* ===================== hero call to action ===================== */
+.seg{display:inline-flex; border:1px solid var(--bd); border-radius:var(--r); overflow:hidden; flex:none}
+.seg button{
+  font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase;
+  padding:7px 10px; border:0; background:var(--bg); color:var(--tx-3); cursor:pointer;
+  transition:background-color .15s,color .15s;
+}
+.seg button + button{border-left:1px solid var(--bd)}
+.seg button:hover{color:var(--tx)}
+.seg button[aria-pressed="true"]{background:var(--brand); color:var(--brand-darkest); font-weight:500}
+
+.hcta{border:1px solid var(--bd); border-radius:12px; background:var(--bg-2); padding:17px 19px 19px; margin:0 0 26px}
+.hc-chips{display:flex; flex-wrap:wrap; gap:4px 16px; margin:0 0 11px; font-size:12.5px; color:var(--tx-3)}
+.hc-chips span{position:relative; padding-left:11px}
+.hc-chips span::before{content:""; position:absolute; left:0; top:7px; width:5px; height:5px; border-radius:50%; background:var(--brand)}
+.hc-h{margin:0 0 5px; font-family:var(--display); font-size:19px; font-weight:700; letter-spacing:-.02em; color:var(--tx)}
+.hc-p{margin:0 0 14px; font-size:14.5px; color:var(--tx-2); line-height:1.55; max-width:56ch}
+.hc-act{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.hc-alt{
+  background:none; border:0; padding:0; cursor:pointer; font-size:13.5px; color:var(--tx-3);
+  text-decoration:underline; text-underline-offset:2px; text-decoration-color:var(--bd);
+}
+.hc-alt:hover{color:var(--tx)}
+.hc-form{position:relative; display:block}
+.hc-form textarea{
+  width:100%; display:block; resize:vertical; font:inherit; font-size:14.5px; line-height:1.5;
+  color:var(--tx); background:var(--bg); border:1px solid var(--bd); border-radius:var(--r-lg);
+  padding:12px 50px 12px 14px; min-height:74px;
+}
+.hc-form textarea::placeholder{color:var(--tx-3)}
+.hc-form textarea:focus{outline:2px solid var(--brand); outline-offset:1px; border-color:var(--brand)}
+.hc-send{
+  position:absolute; right:9px; bottom:9px; width:32px; height:32px; border-radius:50%;
+  border:0; background:var(--brand); color:var(--brand-darkest); font-size:15px; line-height:1;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.hc-send:hover{background:var(--brand-hover)}
+.hc-note{margin:9px 0 0; font-size:13px; color:var(--tx-3)}
+.hc-note .hc-alt{font-size:13px}
+
+/* One variant at a time. No attribute means the guided route, so the page is
+   correct before the script has run and correct if it never runs. */
+.hc-chat{display:none}
+:root[data-cta="chat"] .hc-pitch{display:none}
+:root[data-cta="chat"] .hc-chat{display:block}
+
 /* ===================== method cards (cluster map) ===================== */
 .method{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr)); gap:18px; margin:18px 0 30px}
 .mcard{border:1px solid var(--bd); border-radius:12px; background:var(--bg); padding:20px 20px 22px}

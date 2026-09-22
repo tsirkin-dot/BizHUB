@@ -122,6 +122,7 @@ window.P_AUDIENCE = [
       }
     ]
   },
+  ask: "I have four rentals in Georgia and need one standard lease I can reuse across all of them.",
   faq: [
     { q: "Do I need different leases for different states?", a: "The body of the lease travels; the disclosures, deposit rules, notice periods and fee caps do not. Keep one structure and swap the state-specific parts, and treat a lease that has been used unchanged in a second state as a lease that has not been checked for that state." },
     { q: "Should I hold the deposit in a separate account?", a: "In several states you must, and some also require it to bear interest and require you to tell the tenant in writing where it is held. Even where nothing requires it, a separate account is worth keeping: it makes the deposit provably intact, and it prevents it being spent by accident, which is the origin of a surprising number of deposit disputes." },
@@ -252,6 +253,7 @@ window.P_AUDIENCE = [
       }
     ]
   },
+  ask: "Management agreement for eight units in Arizona, 8% fee, $400 repair limit without approval.",
   faq: [
     { q: "Does a property manager need a licence?", a: "In most states, yes — managing residential property for another for compensation is usually a licensed real estate activity, requiring a broker's licence or a dedicated property management licence, and bringing trust-account and record-keeping rules with it. A few states exempt on-site managers of a single property or salaried employees of the owner. Check your state before you take a fee." },
     { q: "Should the lease name the owner or the management company?", a: "Name the owner as landlord and the management company as authorised agent, signing as agent. Naming the manager as landlord can transfer the landlord's obligations to them personally, including deposit liability. Most states separately require the tenant to be told who is authorised to receive notices, which the same clause can satisfy." },
