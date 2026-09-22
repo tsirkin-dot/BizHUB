@@ -85,6 +85,20 @@ button{font:inherit}
   color:var(--tx-3); margin:20px 0 7px 8px; font-weight:500;
 }
 .rail h5:first-child{margin-top:0}
+.rail h5 .rtag{
+  margin-left:6px; padding:1px 5px; border-radius:4px; letter-spacing:.06em;
+  background:var(--brand); color:var(--brand-darkest); font-weight:500;
+}
+/* the marked entries are a second take on a job another page already owns, so
+   they are flagged in the tree rather than blending into it */
+.tree a.mk{color:var(--brand-dark); padding-left:20px; position:relative}
+.tree a.mk::before{
+  content:""; position:absolute; left:8px; top:50%; margin-top:-3px;
+  width:6px; height:6px; border-radius:50%; background:var(--brand);
+}
+.tree a.mk:hover{color:var(--tx)}
+.tree a.mk.on{color:var(--tx)}
+:root[data-theme="dark"] .tree a.mk{color:var(--brand)}
 .tree{display:flex; flex-direction:column; gap:1px}
 .tree a{display:block; text-decoration:none; font-size:13.5px; color:var(--tx-2); padding:5px 9px; border-radius:6px; line-height:1.4}
 .tree a:hover{background:var(--bg-2); color:var(--tx)}

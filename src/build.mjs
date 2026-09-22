@@ -44,7 +44,7 @@ const GROUPS = [
   { ct: "Audience", h: "Roles & industries",
     p: "Who the reader is, and the whole stack of documents that role keeps — the entry point for somebody who does not yet know which document they need.",
     paths: ["/for-business/landlords", "/industries/property-management"] },
-  { ct: "Sectors", h: "Sectors",
+  { ct: "Sectors", h: "Sectors", tag: "+ marketing",
     p: "The same ground read from the sector's side rather than the document's. These pages open in the product design and are kept out of the index, so they sit beside the pages above without competing with them for the same answer.",
     paths: ["/sectors/landlords", "/sectors/managed-portfolios"] },
   { ct: "Definitions", h: "Glossary",
@@ -154,11 +154,11 @@ const MIC = '<svg class="mic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8
 function railHtml(cur) {
   let h = `<h5>Cluster</h5><nav class="tree"><a class="${cur === "/" ? "on" : ""}" href="${rel(cur, "/")}">Map &amp; intent register</a></nav>`;
   for (const g of GROUPS) {
-    h += `<h5>${esc(g.h)}</h5><nav class="tree">`;
+    h += `<h5>${esc(g.h)}${g.tag ? `<span class="rtag">${esc(g.tag)}</span>` : ""}</h5><nav class="tree">`;
     for (const pp of g.paths) {
       const t = PAGES[pp]; if (!t) continue;
       const sub = g.ct === "Documents" && pp !== "/agreements/real-estate";
-      h += `<a class="${sub ? "sub " : ""}${pp === cur ? "on" : ""}" href="${rel(cur, pp)}"${pp === cur ? ' aria-current="page"' : ""}>${esc(t.title)}</a>`;
+      h += `<a class="${sub ? "sub " : ""}${t.skin ? "mk " : ""}${pp === cur ? "on" : ""}" href="${rel(cur, pp)}"${pp === cur ? ' aria-current="page"' : ""}>${esc(t.title)}</a>`;
     }
     h += `</nav>`;
   }
