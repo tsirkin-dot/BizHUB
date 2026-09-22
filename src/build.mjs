@@ -227,7 +227,7 @@ function renderPage(p) {
     `<section class="sec" id="${ids[i]}"><h2 data-ann="h2"${i === 0 ? ' data-first="1"' : ""}>${rich(s.h, from)}</h2>${blocks(s.b, from)}</section>`).join("");
 
   const voice = (p.voice || []).length
-    ? `<div class="voiceblock" data-ann="voice"><div class="vh">${MIC}<b>Spoken questions this page answers</b><em>${p.voice.length} hypotheses</em></div>` +
+    ? `<div class="voiceblock" data-ann="voice"><div class="vh">${MIC}<b>Spoken questions this page answers</b><em>${p.voice.length} hypotheses</em><a class="tryout" href="https://www.getlooploop.com/voicescope" target="_blank" rel="noopener">Try Voicescope online ↗</a></div>` +
       `<div class="vlist">${p.voice.map(v => `<p>${esc(v)}</p>`).join("")}</div></div>`
     : "";
 
@@ -271,7 +271,8 @@ function renderPage(p) {
 
   const scope = `<section class="scope" id="scope" data-ann="scope">
   <div class="scope-h"><b>Retrieval read of this page</b><em>measured from the rendered page, not stored</em></div>
-  <div class="scope-body" id="scope-body" data-ledger="${attr(JSON.stringify(ledger))}"></div></section>`;
+  <div class="scope-body" id="scope-body" data-ledger="${attr(JSON.stringify(ledger))}"></div>
+  <div class="scope-foot"><a class="tryout" href="https://www.getlooploop.com/vectorscope" target="_blank" rel="noopener">Try Vectorscope online ↗</a></div></section>`;
 
   const article = `<div class="wrap"><article id="article">
 <div class="crumb" aria-label="Breadcrumb">${crumbs.join("")}</div>
